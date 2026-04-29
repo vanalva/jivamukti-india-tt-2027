@@ -1680,11 +1680,20 @@
 
 /* ── Testimonials Swiper ── */
 
-.india_testimonial_swiper {
+.testimonial_swiper_wrap {
+  position: relative;
   overflow-x: hidden;
   overflow-y: visible;
-  width: 100%;
   margin-top: var(--_spacing---space--7-48px);
+}
+
+.india_testimonial_swiper {
+  overflow-x: visible;
+  overflow-y: visible;
+  width: 100%;
+  padding-left: var(--site--margin);
+  padding-right: var(--site--margin);
+  box-sizing: border-box;
 }
 
 .testimonial_card {

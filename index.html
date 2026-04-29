@@ -57,8 +57,13 @@
       .u-content-wrapper.is-centered .section_divider{margin-left:auto;margin-right:auto}
       /* Testimonial Swiper equal heights */
       .india_testimonial_swiper .swiper-wrapper{align-items:stretch}
-      .india_testimonial_swiper .swiper-slide{height:auto;display:flex}
+      .india_testimonial_swiper .swiper-slide{height:auto;display:flex;transition-property:transform,opacity;transition-duration:0.4s;transition-timing-function:ease;opacity:0.3;transform:scale(0.88)}
+      .india_testimonial_swiper .swiper-slide-active,.india_testimonial_swiper .swiper-slide-next{opacity:1;transform:scale(1)}
       .india_testimonial_swiper .swiper-slide .testimonial_card{flex-grow:1}
+      /* Edge fades */
+      .testimonial_swiper_wrap::before,.testimonial_swiper_wrap::after{content:'';position:absolute;top:0;bottom:0;width:clamp(3rem,8vw,8rem);z-index:2;pointer-events:none}
+      .testimonial_swiper_wrap::before{left:0;background-image:linear-gradient(to right,var(--swatch--brand-500) 0%,transparent 100%)}
+      .testimonial_swiper_wrap::after{right:0;background-image:linear-gradient(to left,var(--swatch--brand-500) 0%,transparent 100%)}
     </style></div></div>
 
     <!-- Nav Component -->
@@ -752,6 +757,7 @@
             <h2 class="u-heading" data-style="h2" id="testimonials-heading">What Past Participants Say</h2>
           </div>
 
+          <div class="testimonial_swiper_wrap">
           <div class="swiper india_testimonial_swiper" id="testimonialsSwiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -786,6 +792,7 @@
               </div>
             </div>
           </div>
+          </div><!-- /testimonial_swiper_wrap -->
 
           <div class="testimonial_swiper_nav">
             <button class="tenets_ctrl_btn" id="testimPrev" aria-label="Previous testimonial">
@@ -901,12 +908,14 @@
       if (testimEl) {
         try {
           var ts = new Swiper(testimEl, {
-            slidesPerView: 1,
-            spaceBetween: 24,
+            slidesPerView: 1.15,
+            spaceBetween: 20,
             loop: true,
             grabCursor: true,
             autoplay: { delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true },
-            breakpoints: { 768: { slidesPerView: 2, spaceBetween: 24 } }
+            breakpoints: {
+              768: { slidesPerView: 2.2, spaceBetween: 24 }
+            }
           });
           var tp = document.getElementById('testimPrev');
           var tn = document.getElementById('testimNext');
