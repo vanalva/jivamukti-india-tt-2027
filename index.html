@@ -1235,6 +1235,43 @@
   </script></div>
 
   <div class="u-embed-js"><script>
+    // Video testimonial cards — hover one: pause all others + unmute this one; leave: resume all muted
+    (function() {
+      var cards = document.querySelectorAll('.india_video_testimonial_card');
+      if (!cards.length) return;
+      var videos = [];
+      cards.forEach(function(card) {
+        var v = card.querySelector('video');
+        if (v) videos.push(v);
+      });
+
+      cards.forEach(function(card) {
+        var v = card.querySelector('video');
+        if (!v) return;
+
+        card.addEventListener('mouseenter', function() {
+          videos.forEach(function(other) {
+            if (other !== v) {
+              other.muted = true;
+              try { other.pause(); } catch (e) {}
+            }
+          });
+          v.muted = false;
+          v.currentTime = v.currentTime; // keep position
+          var p = v.play();
+          if (p && p.catch) p.catch(function(){});
+        });
+
+        card.addEventListener('mouseleave', function() {
+          v.muted = true;
+          videos.forEach(function(other) {
+            var pp = other.play();
+            if (pp && pp.catch) pp.catch(function(){});
+          });
+        });
+      });
+    })();
+
     // Newsletter modal — fires at 30% scroll OR after 1200px, whichever first; once per session
     (function() {
       var modal    = document.getElementById('newsletterModal');
