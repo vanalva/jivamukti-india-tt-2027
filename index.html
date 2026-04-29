@@ -1147,18 +1147,20 @@
       if (!('IntersectionObserver' in window)) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+      // Note: never tag Swiper containers (transforms conflict with Swiper's own)
+      // Note: never tag .profile_layout (sticky positioning is broken by ancestor transforms)
       var revealSelectors = [
         '.faculty_card', '.tenet_card', '.tenets_tab_wrap',
         '.india_2col_text', '.india_video_wrap', '.india_bhakti_heading',
         '.india_apply_req_content', '.india_housing_heading', '.india_housing_intro',
         '.india_housing_room', '.india_prereq_title', '.india_prereq_intro',
         '.india_prereq_card', '.india_pricing_card', '.accordion_component',
-        '.gallery_section .u-content-wrapper', '.gallery_swiper',
-        '#testimonials-heading', '.testimonial_swiper_wrap',
+        '.gallery_section .u-content-wrapper',
+        '#testimonials-heading',
         '.india_video_testimonial_section',
         '#contact .u-content-wrapper', '.contact_form', '.india_contact_note',
         'footer .footer_column',
-        '.india_land_panel', '.india_land_slider'
+        '.india_land_panel'
       ];
       var leftSelectors  = ['.india_dates_left'];
       var rightSelectors = ['.india_2col_image', '.india_dates_right'];

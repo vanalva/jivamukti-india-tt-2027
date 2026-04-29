@@ -1547,26 +1547,41 @@
   margin-top: var(--_spacing---space--8-64px);
 }
 
-/* Book image: center it in its flex panel */
+/* Book image: clean soft beige panel, matches cream theme */
 .india_book_image_wrap {
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: 22rem;
   max-width: 22rem;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: var(--_spacing---space--6-40px);
-  padding-bottom: var(--_spacing---space--6-40px);
-  background-color: var(--swatch--dark-900);
+  padding-top: var(--_spacing---space--7-48px);
+  padding-right: var(--_spacing---space--7-48px);
+  padding-bottom: var(--_spacing---space--7-48px);
+  padding-left: var(--_spacing---space--7-48px);
+  background-color: color-mix(in srgb, var(--swatch--secondary-500) 22%, var(--swatch--light-200));
   border-top-left-radius: var(--radius--main);
   border-top-right-radius: var(--radius--main);
   border-bottom-left-radius: var(--radius--main);
   border-bottom-right-radius: var(--radius--main);
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: color-mix(in srgb, var(--swatch--brand-500) 15%, transparent);
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: color-mix(in srgb, var(--swatch--brand-500) 15%, transparent);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: color-mix(in srgb, var(--swatch--brand-500) 15%, transparent);
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: color-mix(in srgb, var(--swatch--brand-500) 15%, transparent);
 }
 
 .india_book_cover_img {
-  max-width: 14rem;
+  max-width: 13rem;
   width: 100%;
   height: auto;
   display: block;
