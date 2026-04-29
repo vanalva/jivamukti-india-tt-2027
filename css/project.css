@@ -1350,21 +1350,40 @@
 
 .india_faculty_grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-column-gap: var(--site--gutter);
   grid-row-gap: var(--site--gutter);
   margin-top: var(--_spacing---space--7-48px);
 }
 
+/* Top row: first 3 cards span 4 cols each (3 × 4 = 12) → centered trio */
+.india_faculty_grid .faculty_card:nth-child(-n+3) {
+  grid-column-end: span 4;
+}
+
+/* Bottom row: cards 4-7 span 3 cols each (4 × 3 = 12) → 4-up row */
+.india_faculty_grid .faculty_card:nth-child(n+4) {
+  grid-column-end: span 3;
+}
+
 @media (max-width: 991px) {
   .india_faculty_grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
+  .india_faculty_grid .faculty_card:nth-child(-n+3),
+  .india_faculty_grid .faculty_card:nth-child(n+4) {
+    grid-column-end: span 2;
+  }
+  /* 7 cards in 6-col grid: 3 top (2-col each = 6), then row of 3 (2-col each = 6), last orphan stays 2-col but centered if possible */
 }
 
 @media (max-width: 767px) {
   .india_faculty_grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .india_faculty_grid .faculty_card:nth-child(-n+3),
+  .india_faculty_grid .faculty_card:nth-child(n+4) {
+    grid-column-end: span 1;
   }
 }
 
@@ -2630,16 +2649,21 @@
 @media (min-width: 768px) {
   .india_bhakti_rows {
     position: relative;
+    display: block;
+    row-gap: 0;
   }
   .india_bhakti_rows .profile_layout {
     position: sticky;
     background-color: var(--_theme---background);
-    padding-top: var(--_spacing---space--6-40px);
-    padding-bottom: var(--_spacing---space--6-40px);
+    padding-top: var(--_spacing---section-space--small-80px);
+    padding-bottom: var(--_spacing---section-space--small-80px);
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: color-mix(in srgb, var(--swatch--brand-500) 12%, transparent);
   }
-  .india_bhakti_rows .profile_layout:nth-child(1) { top: 6rem; }
-  .india_bhakti_rows .profile_layout:nth-child(2) { top: 7.5rem; }
-  .india_bhakti_rows .profile_layout:nth-child(3) { top: 9rem; }
+  .india_bhakti_rows .profile_layout:nth-child(1) { top: 5rem;  z-index: 1; }
+  .india_bhakti_rows .profile_layout:nth-child(2) { top: 7rem;  z-index: 2; }
+  .india_bhakti_rows .profile_layout:nth-child(3) { top: 9rem;  z-index: 3; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -213,6 +213,7 @@
             <p class="u-text-style-large">Our faculty of senior Jivamukti Yoga Teachers are pleased to offer their wisdom &amp; knowledge in the land of its source.</p>
           </div>
           <div class="india_faculty_grid">
+            <!-- Top row: 3 centered (4-col span each in 12-col grid) -->
             <div class="faculty_card">
               <img src="assets/camila-veen-india-2027.png" alt="Camila Veen" class="faculty_card_photo" loading="lazy">
               <div class="faculty_card_divider"></div>
@@ -240,21 +241,13 @@
                 <div class="faculty_card_credential">Advanced Certified</div>
               </div>
             </div>
+            <!-- Bottom row: 4 cards (3-col span each in 12-col grid) -->
             <div class="faculty_card">
-              <img src="assets/Moritz-Ulrich-india-2027.webp" alt="Moritz Ulrich" class="faculty_card_photo" loading="lazy">
+              <img src="assets/Gianni-Sarracino-india-2027_3.png" alt="Gianni Sarracino" class="faculty_card_photo" loading="lazy">
               <div class="faculty_card_divider"></div>
               <div class="faculty_card_body">
                 <div class="faculty_card_role">Faculty</div>
-                <div class="faculty_card_name">Moritz Ulrich</div>
-                <div class="faculty_card_credential">Advanced Certified</div>
-              </div>
-            </div>
-            <div class="faculty_card">
-              <img src="assets/Rebeca-Recatero2.png" alt="Rebeca Recatero" class="faculty_card_photo" loading="lazy">
-              <div class="faculty_card_divider"></div>
-              <div class="faculty_card_body">
-                <div class="faculty_card_role">Faculty</div>
-                <div class="faculty_card_name">Rebeca Recatero</div>
+                <div class="faculty_card_name">Gianni Sarracino</div>
                 <div class="faculty_card_credential">Advanced Certified</div>
               </div>
             </div>
@@ -268,11 +261,20 @@
               </div>
             </div>
             <div class="faculty_card">
-              <img src="assets/Gianni-Sarracino-india-2027_3.png" alt="Gianni Sarracino" class="faculty_card_photo" loading="lazy">
+              <img src="assets/Rebeca-Recatero2.png" alt="Rebeca Recatero" class="faculty_card_photo" loading="lazy">
               <div class="faculty_card_divider"></div>
               <div class="faculty_card_body">
                 <div class="faculty_card_role">Faculty</div>
-                <div class="faculty_card_name">Gianni Sarracino</div>
+                <div class="faculty_card_name">Rebeca Recatero</div>
+                <div class="faculty_card_credential">Advanced Certified</div>
+              </div>
+            </div>
+            <div class="faculty_card">
+              <img src="assets/Moritz-Ulrich-india-2027.webp" alt="Moritz Ulrich" class="faculty_card_photo" loading="lazy">
+              <div class="faculty_card_divider"></div>
+              <div class="faculty_card_body">
+                <div class="faculty_card_role">Faculty</div>
+                <div class="faculty_card_name">Moritz Ulrich</div>
                 <div class="faculty_card_credential">Advanced Certified</div>
               </div>
             </div>
@@ -1145,75 +1147,68 @@
       if (!('IntersectionObserver' in window)) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      // Selectors that get the default upward reveal
       var revealSelectors = [
-        '.faculty_card',
-        '.tenet_card',
-        '.tenets_tab_wrap',
-        '.india_2col_text',
-        '.india_video_wrap',
-        '.india_bhakti_heading',
-        '.india_apply_req_content',
-        '.india_housing_heading',
-        '.india_housing_intro',
-        '.india_housing_room',
-        '.india_prereq_title',
-        '.india_prereq_intro',
-        '.india_prereq_card',
-        '.india_pricing_card',
-        '.accordion_component',
-        '.gallery_section .u-content-wrapper',
-        '.gallery_swiper',
-        '#testimonials-heading',
-        '.testimonial_swiper_wrap',
+        '.faculty_card', '.tenet_card', '.tenets_tab_wrap',
+        '.india_2col_text', '.india_video_wrap', '.india_bhakti_heading',
+        '.india_apply_req_content', '.india_housing_heading', '.india_housing_intro',
+        '.india_housing_room', '.india_prereq_title', '.india_prereq_intro',
+        '.india_prereq_card', '.india_pricing_card', '.accordion_component',
+        '.gallery_section .u-content-wrapper', '.gallery_swiper',
+        '#testimonials-heading', '.testimonial_swiper_wrap',
         '.india_video_testimonial_section',
-        '#contact .u-content-wrapper',
-        '.contact_form',
-        '.india_contact_note',
-        'footer .footer_column'
+        '#contact .u-content-wrapper', '.contact_form', '.india_contact_note',
+        'footer .footer_column',
+        '.india_land_panel', '.india_land_slider'
       ];
-
-      // Sideways reveals
       var leftSelectors  = ['.india_dates_left'];
       var rightSelectors = ['.india_2col_image', '.india_dates_right'];
-      var scaleSelectors = ['.tenets_content_icon', '.india_bhakti_image_main', '.india_book_image_wrap'];
+      var scaleSelectors = ['.india_bhakti_image_main', '.india_book_image_wrap'];
 
-      function tag(list, attr) {
+      function tagAll(list, attr) {
         list.forEach(function(sel) {
           document.querySelectorAll(sel).forEach(function(el) {
             el.setAttribute('data-reveal', attr);
           });
         });
       }
-      tag(revealSelectors, 'up');
-      tag(leftSelectors,   'left');
-      tag(rightSelectors,  'right');
-      tag(scaleSelectors,  'scale');
 
-      // Stagger delay within groups
-      var groups = ['.india_faculty_grid', '.tenet_grid', '.india_prereq_grid', '.accordion_list', '.footer_top'];
+      // ---- STEP 1: Tag elements (synchronous — applies CSS opacity:0)
+      tagAll(revealSelectors, 'up');
+      tagAll(leftSelectors,   'left');
+      tagAll(rightSelectors,  'right');
+      tagAll(scaleSelectors,  'scale');
+
+      // Stagger within groups
+      var groups = ['.india_faculty_grid', '.tenet_grid', '.india_prereq_grid', '.india_pricing_grid', '.accordion_list', '.footer_top'];
       groups.forEach(function(g) {
         var parent = document.querySelector(g);
         if (!parent) return;
         Array.from(parent.children).forEach(function(child, i) {
           if (child.hasAttribute('data-reveal')) {
-            child.style.transitionDelay = (i * 0.06) + 's';
+            child.style.transitionDelay = (i * 0.07) + 's';
           }
         });
       });
 
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            io.unobserve(entry.target);
-          }
+      // ---- STEP 2: Force a reflow to lock-in the from-state paint
+      void document.body.offsetHeight;
+
+      // ---- STEP 3: After two RAFs the browser has painted opacity:0
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+          document.querySelectorAll('[data-reveal]').forEach(function(el) { io.observe(el); });
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      });
 
-      document.querySelectorAll('[data-reveal]').forEach(function(el) { io.observe(el); });
-
-      // Hero entrance — reveal immediately on load with staggered delay
+      // ---- HERO entrance (above the fold — runs immediately)
       var heroEls = [
         ['.india_hero_main_logo',   0.15],
         ['.india_hero_dates',       0.4],
@@ -1227,6 +1222,7 @@
         el.classList.add('hero-reveal');
         el.style.transitionDelay = pair[1] + 's';
       });
+      void document.body.offsetHeight;
       requestAnimationFrame(function() {
         requestAnimationFrame(function() {
           heroEls.forEach(function(pair) {
@@ -1239,20 +1235,35 @@
   </script></div>
 
   <div class="u-embed-js"><script>
-    // Newsletter modal — shows at 55% scroll, once per session
+    // Newsletter modal — fires at 30% scroll OR after 1200px, whichever first; once per session
     (function() {
-      var modal   = document.getElementById('newsletterModal');
-      var overlay = document.getElementById('modalOverlay');
-      var closeBtn= document.getElementById('modalClose');
-      if (!modal || sessionStorage.getItem('satsang-modal-shown')) return;
-      function openModal()  { modal.classList.add('is-visible'); sessionStorage.setItem('satsang-modal-shown','1'); }
+      var modal    = document.getElementById('newsletterModal');
+      if (!modal) return;
+      var overlay  = document.getElementById('modalOverlay');
+      var closeBtn = document.getElementById('modalClose');
+      var STORAGE_KEY = 'satsang-modal-v2';
+      if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+      function openModal()  { modal.classList.add('is-visible'); sessionStorage.setItem(STORAGE_KEY, '1'); }
       function closeModal() { modal.classList.remove('is-visible'); }
+
       var fired = false;
-      window.addEventListener('scroll', function() {
+      function check() {
         if (fired) return;
-        var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-        if (pct > 0.55) { fired = true; openModal(); }
-      }, { passive: true });
+        var doc   = document.documentElement;
+        var scroll= window.scrollY || window.pageYOffset || doc.scrollTop || 0;
+        var max   = (doc.scrollHeight - window.innerHeight) || 1;
+        var pct   = scroll / max;
+        if (scroll > 1200 || pct > 0.30) {
+          fired = true;
+          openModal();
+          window.removeEventListener('scroll', check);
+        }
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      // Also check on first frame in case page loads scrolled
+      requestAnimationFrame(check);
+
       if (overlay)  overlay.addEventListener('click',  closeModal);
       if (closeBtn) closeBtn.addEventListener('click', closeModal);
       document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
