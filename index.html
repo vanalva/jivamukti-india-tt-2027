@@ -78,6 +78,9 @@
       .testimonial_swiper_wrap::before,.testimonial_swiper_wrap::after{content:'';position:absolute;top:0;bottom:0;width:clamp(3rem,8vw,8rem);z-index:2;pointer-events:none}
       .testimonial_swiper_wrap::before{left:0;background-image:linear-gradient(to right,var(--swatch--brand-500) 0%,transparent 100%)}
       .testimonial_swiper_wrap::after{right:0;background-image:linear-gradient(to left,var(--swatch--brand-500) 0%,transparent 100%)}
+      /* Video testimonial marquee — pause on hover, fade play icon on card hover */
+      .india_video_testimonial_marquee:hover .india_video_testimonial_track{animation-play-state:paused}
+      .india_video_testimonial_card:hover .india_video_testimonial_play{opacity:0}
     </style></div></div>
 
     <!-- Nav Component -->
@@ -817,6 +820,27 @@
             </button>
           </div>
         </div>
+
+        <!-- Video testimonial marquee (replace img → video when assets ready) -->
+        <div class="india_video_testimonial_section" aria-label="Student stories">
+          <div class="india_video_testimonial_marquee">
+            <div class="india_video_testimonial_track">
+              <div class="india_video_testimonial_card"><img src="assets/india-2025-slider2-photo1-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card"><img src="assets/india-2025-slider2-photo2-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card"><img src="assets/india-2025-slider2-photo3-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card"><img src="assets/india-2025-slider3-photo1-min.jpeg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card"><img src="assets/india-2025-slider3-photo2-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card"><img src="assets/india-2025-slider3-photo3-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <!-- Duplicates for seamless loop -->
+              <div class="india_video_testimonial_card" aria-hidden="true"><img src="assets/india-2025-slider2-photo1-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card" aria-hidden="true"><img src="assets/india-2025-slider2-photo2-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card" aria-hidden="true"><img src="assets/india-2025-slider2-photo3-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card" aria-hidden="true"><img src="assets/india-2025-slider3-photo1-min.jpeg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card" aria-hidden="true"><img src="assets/india-2025-slider3-photo2-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+              <div class="india_video_testimonial_card" aria-hidden="true"><img src="assets/india-2025-slider3-photo3-min.jpg" class="india_video_testimonial_media" alt="" loading="lazy"><div class="india_video_testimonial_play" aria-hidden="true">&#9654;</div></div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- ─── CONTACT ───────────────────────────────────────────── -->
@@ -1068,14 +1092,19 @@
   </script></div>
 
   <div class="u-embed-js"><script>
-    // Accordion toggle
+    // Accordion toggle — uses .is-active class for styling hooks
     document.querySelectorAll('.accordion_toggle_button').forEach(function(btn) {
       btn.addEventListener('click', function() {
+        var item    = this.closest('.accordion_component');
         var content = this.nextElementSibling;
-        var icon    = this.querySelector('.accordion_toggle_icon');
-        var open    = content.style.display === 'block';
-        content.style.display = open ? 'none' : 'block';
-        icon.style.transform  = open ? '' : 'rotate(180deg)';
+        var open    = item.classList.contains('is-active');
+        if (open) {
+          item.classList.remove('is-active');
+          content.style.display = 'none';
+        } else {
+          item.classList.add('is-active');
+          content.style.display = 'block';
+        }
         this.setAttribute('aria-expanded', String(!open));
       });
     });
