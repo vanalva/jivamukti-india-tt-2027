@@ -942,10 +942,6 @@
     </main>
   </div>
 
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <div class="u-embed-js"><script>
@@ -1111,180 +1107,100 @@
   </script></div>
 
   <div class="u-embed-js"><script>
-    // ═══ GSAP Scroll Animations ═════════════════════════════════
+    // ═══ Reveal-on-scroll (IntersectionObserver) ════════════════
     (function() {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-      gsap.registerPlugin(ScrollTrigger);
+      if (!('IntersectionObserver' in window)) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      // Respect reduced-motion preference
-      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduced) return;
+      // Selectors that get the default upward reveal
+      var revealSelectors = [
+        '.faculty_card',
+        '.tenet_card',
+        '.tenets_tab_wrap',
+        '.india_2col_text',
+        '.india_video_wrap',
+        '.india_bhakti_heading',
+        '.india_apply_req_content',
+        '.india_housing_heading',
+        '.india_housing_intro',
+        '.india_housing_room',
+        '.india_prereq_title',
+        '.india_prereq_intro',
+        '.india_prereq_card',
+        '.accordion_component',
+        '.gallery_section .u-content-wrapper',
+        '.gallery_swiper',
+        '#testimonials-heading',
+        '.testimonial_swiper_wrap',
+        '.india_video_testimonial_section',
+        '#contact .u-content-wrapper',
+        '.contact_form',
+        '.india_contact_note',
+        'footer .footer_column'
+      ];
 
-      var EASE = 'power3.out';
-      var DUR  = 1.0;
+      // Sideways reveals
+      var leftSelectors  = ['.india_dates_left'];
+      var rightSelectors = ['.india_2col_image', '.india_dates_right'];
+      var scaleSelectors = ['.tenets_content_icon', '.india_bhakti_image_main', '.india_book_image_wrap'];
 
-      function fadeFrom(selector, opts) {
-        var els = document.querySelectorAll(selector);
-        if (!els.length) return;
-        var defaults = { y: 40, opacity: 0, duration: DUR, ease: EASE, stagger: 0.08 };
-        for (var k in opts) defaults[k] = opts[k];
-        els.forEach(function(el) {
-          var cfg = Object.assign({}, defaults);
-          cfg.scrollTrigger = { trigger: el, start: 'top 88%', toggleActions: 'play none none none' };
-          gsap.from(el, cfg);
+      function tag(list, attr) {
+        list.forEach(function(sel) {
+          document.querySelectorAll(sel).forEach(function(el) {
+            el.setAttribute('data-reveal', attr);
+          });
         });
       }
+      tag(revealSelectors, 'up');
+      tag(leftSelectors,   'left');
+      tag(rightSelectors,  'right');
+      tag(scaleSelectors,  'scale');
 
-      // HERO — left panel slides up word by word, photo fades + scale
-      gsap.from('.india_hero_main_logo',  { y: 30, opacity: 0, duration: 1.2, ease: EASE, delay: 0.1 });
-      gsap.from('.india_hero_dates',      { y: 20, opacity: 0, duration: 0.9, ease: EASE, delay: 0.45 });
-      gsap.from('.india_hero_tagline',    { y: 20, opacity: 0, duration: 0.9, ease: EASE, delay: 0.6 });
-      gsap.from('.india_hero_left .button_secondary', { y: 20, opacity: 0, duration: 0.9, ease: EASE, delay: 0.75 });
-      gsap.from('.india_hero_photo',      { scale: 1.08, opacity: 0, duration: 1.4, ease: EASE });
-
-      // FACULTY cards stagger
-      gsap.from('.india_faculty_grid .faculty_card', {
-        y: 50, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.08,
-        scrollTrigger: { trigger: '.india_faculty_grid', start: 'top 80%' }
-      });
-
-      // LAND OF ACTION — text from left, image from right
-      gsap.from('.india_2col_text > *', {
-        x: -40, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: '.india_2col', start: 'top 80%' }
-      });
-      gsap.from('.india_2col_image', {
-        x: 40, opacity: 0, duration: 1.0, ease: EASE,
-        scrollTrigger: { trigger: '.india_2col', start: 'top 80%' }
-      });
-
-      // VIDEO scale-in
-      gsap.from('.india_video_wrap', {
-        scale: 0.92, opacity: 0, duration: 1.0, ease: EASE,
-        scrollTrigger: { trigger: '.india_video_section', start: 'top 80%' }
-      });
-
-      // TENETS section subtle entrance
-      gsap.from('.tenets_tab_wrap', {
-        y: 30, opacity: 0, duration: 0.9, ease: EASE,
-        scrollTrigger: { trigger: '.tenets_tab_wrap', start: 'top 85%' }
-      });
-
-      // ── BHAKTI: stacked cards unstack on scroll ──
-      var bhaktiSection = document.querySelector('.india_bhakti_rows');
-      if (bhaktiSection) {
-        var rows = bhaktiSection.querySelectorAll('.profile_layout');
-        if (rows.length === 3 && window.matchMedia('(min-width: 768px)').matches) {
-          // Start state: stacked
-          gsap.set(rows[1], { yPercent: -85, scale: 0.96 });
-          gsap.set(rows[2], { yPercent: -170, scale: 0.92 });
-          var tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: bhaktiSection,
-              start: 'top 70%',
-              end: 'bottom 60%',
-              scrub: 1
-            }
-          });
-          tl.to(rows[1], { yPercent: 0, scale: 1, ease: 'none' }, 0);
-          tl.to(rows[2], { yPercent: 0, scale: 1, ease: 'none' }, 0.25);
-        } else {
-          // Mobile fallback: simple fade up
-          gsap.from(rows, {
-            y: 40, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.15,
-            scrollTrigger: { trigger: bhaktiSection, start: 'top 80%' }
-          });
-        }
-      }
-      gsap.from('.india_bhakti_heading', {
-        y: 30, opacity: 0, duration: 0.9, ease: EASE,
-        scrollTrigger: { trigger: '.india_bhakti_heading', start: 'top 85%' }
-      });
-
-      // APPLICATION REQUIREMENTS
-      gsap.from('.india_apply_req_content > *', {
-        y: 30, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: '.india_apply_req_section', start: 'top 75%' }
-      });
-
-      // HOUSING — alternate row direction
-      var housingRooms = document.querySelectorAll('.india_housing_room');
-      housingRooms.forEach(function(room, i) {
-        var dir = i % 2 === 0 ? -30 : 30;
-        gsap.from(room.children, {
-          x: dir, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.1,
-          scrollTrigger: { trigger: room, start: 'top 82%' }
-        });
-      });
-      gsap.from('.india_housing_heading, .india_housing_intro', {
-        y: 30, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: '.india_housing_heading', start: 'top 85%' }
-      });
-
-      // REGISTRATION DATES — split entrance
-      gsap.from('.india_dates_left > *', {
-        x: -30, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: '.india_dates_section', start: 'top 75%' }
-      });
-      gsap.from('.india_dates_photo', {
-        scale: 1.08, opacity: 0, duration: 1.2, ease: EASE,
-        scrollTrigger: { trigger: '.india_dates_section', start: 'top 75%' }
-      });
-
-      // PREREQUISITES cards
-      gsap.from('.india_prereq_card', {
-        y: 50, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.12,
-        scrollTrigger: { trigger: '.india_prereq_grid', start: 'top 80%' }
-      });
-      gsap.from('.india_prereq_title, .india_prereq_intro', {
-        y: 30, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: '.india_prereq_title', start: 'top 85%' }
-      });
-
-      // TRAVEL accordion items
-      gsap.from('.accordion_component', {
-        y: 20, opacity: 0, duration: 0.7, ease: EASE, stagger: 0.06,
-        scrollTrigger: { trigger: '.accordion_wrap', start: 'top 85%' }
-      });
-
-      // GALLERY
-      gsap.from('.gallery_section .u-content-wrapper > *', {
-        y: 30, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: '.gallery_section', start: 'top 82%' }
-      });
-      gsap.from('.gallery_swiper', {
-        opacity: 0, duration: 1.2, ease: EASE,
-        scrollTrigger: { trigger: '.gallery_section', start: 'top 80%' }
-      });
-
-      // TESTIMONIALS heading
-      gsap.from('#testimonials-heading, #testimonials-heading + *, .testimonial_swiper_wrap', {
-        y: 30, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.12,
-        scrollTrigger: { trigger: '#testimonials-heading', start: 'top 85%' }
-      });
-
-      // CONTACT
-      gsap.from('#contact-heading, #contact-heading + p, .contact_form, .india_contact_note', {
-        y: 30, opacity: 0, duration: 0.9, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: '#contact', start: 'top 80%' }
-      });
-
-      // SECTION DIVIDERS — width grow
-      gsap.utils.toArray('.section_divider').forEach(function(el) {
-        gsap.from(el, {
-          width: 0, duration: 0.7, ease: EASE,
-          scrollTrigger: { trigger: el, start: 'top 90%' }
+      // Stagger delay within groups
+      var groups = ['.india_faculty_grid', '.tenet_grid', '.india_prereq_grid', '.accordion_list', '.footer_top'];
+      groups.forEach(function(g) {
+        var parent = document.querySelector(g);
+        if (!parent) return;
+        Array.from(parent.children).forEach(function(child, i) {
+          if (child.hasAttribute('data-reveal')) {
+            child.style.transitionDelay = (i * 0.06) + 's';
+          }
         });
       });
 
-      // FOOTER
-      gsap.from('footer .footer_column', {
-        y: 30, opacity: 0, duration: 0.8, ease: EASE, stagger: 0.08,
-        scrollTrigger: { trigger: 'footer', start: 'top 90%' }
-      });
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
 
-      // Refresh after fonts/images load
-      window.addEventListener('load', function() { ScrollTrigger.refresh(); });
+      document.querySelectorAll('[data-reveal]').forEach(function(el) { io.observe(el); });
+
+      // Hero entrance — reveal immediately on load with staggered delay
+      var heroEls = [
+        ['.india_hero_main_logo',   0.15],
+        ['.india_hero_dates',       0.4],
+        ['.india_hero_tagline',     0.55],
+        ['.india_hero_left .button_secondary', 0.7],
+        ['.india_hero_photo',       0]
+      ];
+      heroEls.forEach(function(pair) {
+        var el = document.querySelector(pair[0]);
+        if (!el) return;
+        el.classList.add('hero-reveal');
+        el.style.transitionDelay = pair[1] + 's';
+      });
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          heroEls.forEach(function(pair) {
+            var el = document.querySelector(pair[0]);
+            if (el) el.classList.add('is-revealed');
+          });
+        });
+      });
     })();
   </script></div>
 
