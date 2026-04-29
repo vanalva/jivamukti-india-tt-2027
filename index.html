@@ -34,6 +34,10 @@
       .u-theme-brand .button_primary:hover{background-color:var(--swatch--secondary-400);border-top-color:var(--swatch--secondary-400);border-right-color:var(--swatch--secondary-400);border-bottom-color:var(--swatch--secondary-400);border-left-color:var(--swatch--secondary-400)}
       .u-theme-brand .button_secondary{color:var(--swatch--brand-text);border-top-color:color-mix(in srgb,var(--swatch--brand-text) 40%,transparent);border-right-color:color-mix(in srgb,var(--swatch--brand-text) 40%,transparent);border-bottom-color:color-mix(in srgb,var(--swatch--brand-text) 40%,transparent);border-left-color:color-mix(in srgb,var(--swatch--brand-text) 40%,transparent)}
       .u-theme-brand .button_secondary:hover{background-color:var(--swatch--brand-text);color:var(--swatch--brand-500);border-top-color:var(--swatch--brand-text);border-right-color:var(--swatch--brand-text);border-bottom-color:var(--swatch--brand-text);border-left-color:var(--swatch--brand-text)}
+      /* Form fields on dark brand bg */
+      .u-theme-brand .form_field{background-color:color-mix(in srgb,var(--swatch--brand-text) 8%,transparent);border-top-color:color-mix(in srgb,var(--swatch--brand-text) 30%,transparent);border-right-color:color-mix(in srgb,var(--swatch--brand-text) 30%,transparent);border-bottom-color:color-mix(in srgb,var(--swatch--brand-text) 30%,transparent);border-left-color:color-mix(in srgb,var(--swatch--brand-text) 30%,transparent);color:var(--swatch--brand-text)}
+      .u-theme-brand .form_field:focus{border-top-color:var(--swatch--brand-text);border-right-color:var(--swatch--brand-text);border-bottom-color:var(--swatch--brand-text);border-left-color:var(--swatch--brand-text)}
+      .u-theme-brand .form_label{color:var(--swatch--brand-text);opacity:0.7}
       .u-theme-dark{background-color:var(--swatch--dark-900);color:var(--swatch--light-200)}
       .u-theme-dark .footer_bottom{border-top-color:color-mix(in srgb,var(--swatch--light-200) 15%,transparent)}
       /* u-section */
@@ -805,43 +809,49 @@
         </div>
       </section>
 
-      <!-- ─── 11. CONTACT & NEWSLETTER ─────────────────────────── -->
-      <section class="u-section" id="contact" aria-labelledby="contact-heading">
+      <!-- ─── CONTACT ───────────────────────────────────────────── -->
+      <section class="u-section u-theme-brand" id="contact" aria-labelledby="contact-heading">
         <div class="u-container">
-          <div class="u-layout">
-            <div>
-              <div class="section_divider"></div>
-              <h2 class="u-heading" data-style="h2" id="contact-heading">Do You Have a Question?</h2>
-              <p class="u-text-style-large">We would love to hear from you.</p>
-              <form class="contact_form" action="mailto:tt@jivamuktiyoga.com" method="get">
-                <div class="form_group">
-                  <label class="form_label" for="contact_name">Name</label>
-                  <input type="text" id="contact_name" name="name" class="form_field" placeholder="Your full name">
-                </div>
-                <div class="form_group">
-                  <label class="form_label" for="contact_email">Email</label>
-                  <input type="email" id="contact_email" name="email" class="form_field" placeholder="your@email.com">
-                </div>
-                <div class="form_group">
-                  <label class="form_label" for="contact_message">Message</label>
-                  <textarea id="contact_message" name="body" class="form_field is-textarea" placeholder="How can we help you?"></textarea>
-                </div>
-                <button type="submit" class="button_primary">Send Message</button>
-              </form>
-            </div>
-            <div>
-              <div class="section_divider"></div>
-              <h2 class="u-heading" data-style="h2">Join Our Email Satsang</h2>
-              <p class="u-text-style-main">Stay connected with the Jivamukti community. Receive teachings, updates, and inspiration.</p>
-              <form class="newsletter_wrap" action="#" method="post">
-                <input type="email" class="newsletter_input" placeholder="Your email" required aria-label="Email address">
-                <button type="submit" class="button_primary">Join</button>
-              </form>
-              <p class="u-text-style-small footer_link">Training enquiries: <a href="mailto:tt@jivamuktiyoga.com">tt@jivamuktiyoga.com</a></p>
-            </div>
+          <div class="u-content-wrapper is-centered">
+            <div class="section_divider"></div>
+            <h2 class="u-heading" data-style="h2" id="contact-heading">Do You Have a Question?</h2>
+            <p class="u-text-style-large">We would love to hear from you.</p>
           </div>
+          <form class="contact_form india_contact_centered" action="mailto:tt@jivamuktiyoga.com" method="get">
+            <div class="form_group">
+              <label class="form_label" for="contact_name">Name</label>
+              <input type="text" id="contact_name" name="name" class="form_field" placeholder="Your full name">
+            </div>
+            <div class="form_group">
+              <label class="form_label" for="contact_email">Email</label>
+              <input type="email" id="contact_email" name="email" class="form_field" placeholder="your@email.com">
+            </div>
+            <div class="form_group">
+              <label class="form_label" for="contact_message">Message</label>
+              <textarea id="contact_message" name="body" class="form_field is-textarea" placeholder="How can we help you?"></textarea>
+            </div>
+            <button type="submit" class="button_primary">Send Message</button>
+          </form>
+          <p class="india_contact_note u-text-style-small">Training enquiries: <a href="mailto:tt@jivamuktiyoga.com">tt@jivamuktiyoga.com</a></p>
         </div>
       </section>
+
+      <!-- ─── NEWSLETTER MODAL ──────────────────────────────────── -->
+      <div class="newsletter_modal" id="newsletterModal" role="dialog" aria-modal="true" aria-labelledby="modal-satsang-heading">
+        <div class="newsletter_modal_overlay" id="modalOverlay"></div>
+        <div class="newsletter_modal_panel">
+          <button class="newsletter_modal_close" id="modalClose" aria-label="Close">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="section_divider"></div>
+          <h2 class="u-heading" data-style="h3" id="modal-satsang-heading">Join Our Email Satsang</h2>
+          <p class="u-text-style-main">Stay connected with the Jivamukti community. Receive teachings, updates, and inspiration delivered to your inbox.</p>
+          <form class="newsletter_wrap" action="#" method="post">
+            <input type="email" class="newsletter_input" placeholder="Your email address" required aria-label="Email address">
+            <button type="submit" class="button_primary">Join</button>
+          </form>
+        </div>
+      </div>
 
       <!-- ─── FOOTER ─────────────────────────────────────────────── -->
       <footer class="u-theme-dark">
@@ -1055,6 +1065,27 @@
         this.setAttribute('aria-expanded', String(!open));
       });
     });
+  </script></div>
+
+  <div class="u-embed-js"><script>
+    // Newsletter modal — shows at 55% scroll, once per session
+    (function() {
+      var modal   = document.getElementById('newsletterModal');
+      var overlay = document.getElementById('modalOverlay');
+      var closeBtn= document.getElementById('modalClose');
+      if (!modal || sessionStorage.getItem('satsang-modal-shown')) return;
+      function openModal()  { modal.classList.add('is-visible'); sessionStorage.setItem('satsang-modal-shown','1'); }
+      function closeModal() { modal.classList.remove('is-visible'); }
+      var fired = false;
+      window.addEventListener('scroll', function() {
+        if (fired) return;
+        var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+        if (pct > 0.55) { fired = true; openModal(); }
+      }, { passive: true });
+      if (overlay)  overlay.addEventListener('click',  closeModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+    })();
   </script></div>
 
   <div class="u-embed-js"><script>

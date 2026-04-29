@@ -2184,6 +2184,113 @@
   margin-top: var(--_spacing---space--6-40px);
 }
 
+/* ── Contact form — centered on brand bg ── */
+
+.india_contact_centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.india_contact_note {
+  text-align: center;
+  opacity: 0.6;
+  margin-top: var(--_spacing---space--4-24px);
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Newsletter Modal ── */
+
+.newsletter_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition-property: opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
+}
+
+.newsletter_modal.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.newsletter_modal_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--swatch--light-200);
+  opacity: 0.88;
+}
+
+.newsletter_modal_panel {
+  position: relative;
+  z-index: 1;
+  background-color: var(--swatch--light-100);
+  border-top-left-radius: var(--radius--main);
+  border-top-right-radius: var(--radius--main);
+  border-bottom-left-radius: var(--radius--main);
+  border-bottom-right-radius: var(--radius--main);
+  padding-top: var(--_spacing---space--8-64px);
+  padding-right: var(--_spacing---space--8-64px);
+  padding-bottom: var(--_spacing---space--8-64px);
+  padding-left: var(--_spacing---space--8-64px);
+  max-width: 30rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--_spacing---space--4-24px);
+  border-top-width: var(--border-width--main);
+  border-top-style: solid;
+  border-top-color: var(--_theme---border);
+  border-right-width: var(--border-width--main);
+  border-right-style: solid;
+  border-right-color: var(--_theme---border);
+  border-bottom-width: var(--border-width--main);
+  border-bottom-style: solid;
+  border-bottom-color: var(--_theme---border);
+  border-left-width: var(--border-width--main);
+  border-left-style: solid;
+  border-left-color: var(--_theme---border);
+}
+
+.newsletter_modal_close {
+  position: absolute;
+  top: var(--_spacing---space--4-24px);
+  right: var(--_spacing---space--4-24px);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  cursor: pointer;
+  color: var(--swatch--dark-900);
+  opacity: 0.4;
+  transition-property: opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.newsletter_modal_close:hover {
+  opacity: 1;
+}
+
 /* ── Keyframes (CSS Embed) ── */
 
 @keyframes marquee-scroll {
