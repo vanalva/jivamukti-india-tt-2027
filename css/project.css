@@ -972,7 +972,18 @@
 @media (max-width: 767px) {
   .tenets_tab_wrap {
     grid-template-columns: 1fr;
-    grid-row-gap: var(--_spacing---space--5-32px);
+    grid-row-gap: var(--_spacing---space--6-40px);
+  }
+  /* Reorder: panels (icon + text) on top, tabs below */
+  .tenets_tab_wrap .tenets_panel_wrap {
+    order: 1;
+  }
+  .tenets_tab_wrap .tenets_tab_left {
+    order: 2;
+  }
+  /* Hide prev/next arrows on mobile */
+  .tenets_controls {
+    display: none;
   }
 }
 
@@ -1083,7 +1094,8 @@
 
 @media (max-width: 767px) {
   .tenets_content_layout {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
@@ -1125,12 +1137,14 @@
 @media (max-width: 767px) {
   .tenets_content_icon {
     flex-basis: auto;
-    width: 6rem;
+    width: 100%;
+    max-width: 100%;
     aspect-ratio: 1 / 1;
-    padding-top: var(--_spacing---space--4-24px);
-    padding-right: var(--_spacing---space--4-24px);
-    padding-bottom: var(--_spacing---space--4-24px);
-    padding-left: var(--_spacing---space--4-24px);
+    padding-top: var(--_spacing---space--7-48px);
+    padding-right: var(--_spacing---space--7-48px);
+    padding-bottom: var(--_spacing---space--7-48px);
+    padding-left: var(--_spacing---space--7-48px);
+    align-self: stretch;
   }
 }
 
@@ -1307,7 +1321,8 @@
     position: relative;
   }
   .india_hero_left {
-    padding-top: var(--_spacing---section-space--main-112px);
+    padding-top: 11rem;
+    padding-bottom: var(--_spacing---section-space--main-112px);
   }
 }
 
@@ -1379,7 +1394,10 @@
 
 @media (max-width: 767px) {
   .india_faculty_grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
   }
   .india_faculty_grid .faculty_card:nth-child(-n+3),
   .india_faculty_grid .faculty_card:nth-child(n+4) {
@@ -2377,6 +2395,98 @@
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ── Nav Mobile Fullscreen Menu ── */
+
+.nav_mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: var(--swatch--brand-500);
+  color: var(--swatch--brand-text);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-1rem);
+  transition-property: opacity, transform;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  padding-top: calc(var(--nav--height) + var(--nav--spacing-outer-vertical) + 2rem);
+  padding-right: var(--site--margin);
+  padding-bottom: var(--_spacing---space--7-48px);
+  padding-left: var(--site--margin);
+  overflow-y: auto;
+}
+
+.nav_mobile.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav_mobile_close {
+  position: absolute;
+  top: calc(var(--nav--spacing-outer-vertical) + 1rem);
+  right: var(--site--margin);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  cursor: pointer;
+  color: var(--swatch--brand-text);
+  z-index: 1;
+}
+
+.nav_mobile_links {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--_spacing---space--3-16px);
+  margin-top: var(--_spacing---space--5-32px);
+}
+
+.nav_mobile_link {
+  font-size: var(--_typography---font-size--h4);
+  font-weight: var(--_typography---font--primary-medium);
+  letter-spacing: var(--_typography---letter-spacing--wide);
+  text-transform: uppercase;
+  color: var(--swatch--brand-text);
+  padding-top: var(--_spacing---space--3-16px);
+  padding-bottom: var(--_spacing---space--3-16px);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: color-mix(in srgb, var(--swatch--brand-text) 18%, transparent);
+  text-decoration-line: none;
+}
+
+.nav_mobile_link.is-cta {
+  margin-top: var(--_spacing---space--4-24px);
+  background-color: var(--swatch--secondary-500);
+  color: var(--swatch--dark-900);
+  text-align: center;
+  border-bottom-style: none;
+  border-top-left-radius: var(--radius--round);
+  border-top-right-radius: var(--radius--round);
+  border-bottom-left-radius: var(--radius--round);
+  border-bottom-right-radius: var(--radius--round);
+  padding-left: var(--_spacing---space--5-32px);
+  padding-right: var(--_spacing---space--5-32px);
+}
+
+/* Lock body scroll when menu open */
+body.nav-locked {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /* ── Newsletter Modal ── */

@@ -163,11 +163,29 @@
           </div>
           <a href="https://shop.jivamuktiyoga.com/" class="nav_links_item is-shop" target="_blank" rel="noopener">Shop</a>
         </div>
-        <div class="nav_hamburger" aria-label="Menu" role="button" tabindex="0">
+        <div class="nav_hamburger" id="navHamburger" aria-label="Open menu" role="button" tabindex="0">
           <div class="nav_button_line is-1"></div>
           <div class="nav_button_line is-2"></div>
         </div>
       </div>
+    </div>
+
+    <!-- Mobile fullscreen menu -->
+    <div class="nav_mobile" id="navMobile" role="dialog" aria-modal="true" aria-label="Mobile menu" aria-hidden="true">
+      <button class="nav_mobile_close" id="navMobileClose" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <nav class="nav_mobile_links" aria-label="Main navigation">
+        <a href="the-jivamukti-method.html" class="nav_mobile_link">About</a>
+        <a href="locations.html" class="nav_mobile_link">Studios</a>
+        <a href="retreats.html" class="nav_mobile_link">Events</a>
+        <a href="https://digital.jivamuktiyoga.com/" class="nav_mobile_link" target="_blank" rel="noopener">Digital</a>
+        <a href="teachertraining.html" class="nav_mobile_link">Training</a>
+        <a href="teachers.html" class="nav_mobile_link">Teachers</a>
+        <a href="all-blogs.html" class="nav_mobile_link">Journal</a>
+        <a href="https://shop.jivamuktiyoga.com/" class="nav_mobile_link" target="_blank" rel="noopener">Shop</a>
+        <a href="https://www.regpack.com/reg/templates/build/?g_id=100919779" class="nav_mobile_link is-cta" target="_blank" rel="noopener">Apply Now</a>
+      </nav>
     </div>
 
     <main class="page-main" id="main">
@@ -1237,6 +1255,25 @@
   </script></div>
 
   <div class="u-embed-js"><script>
+    // Mobile nav — hamburger toggles fullscreen menu
+    (function() {
+      var ham   = document.getElementById('navHamburger');
+      var menu  = document.getElementById('navMobile');
+      var close = document.getElementById('navMobileClose');
+      if (!ham || !menu) return;
+
+      function openMenu()  { menu.classList.add('is-open'); menu.setAttribute('aria-hidden', 'false'); document.body.classList.add('nav-locked'); ham.setAttribute('aria-label', 'Close menu'); }
+      function closeMenu() { menu.classList.remove('is-open'); menu.setAttribute('aria-hidden', 'true'); document.body.classList.remove('nav-locked'); ham.setAttribute('aria-label', 'Open menu'); }
+      function toggleMenu(){ if (menu.classList.contains('is-open')) closeMenu(); else openMenu(); }
+
+      ham.addEventListener('click', toggleMenu);
+      ham.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); } });
+      if (close) close.addEventListener('click', closeMenu);
+      // Any link click closes
+      menu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+    })();
+
     // Video testimonial cards — hover one: pause all others + unmute this one; leave: resume all muted
     (function() {
       var cards = document.querySelectorAll('.india_video_testimonial_card');
