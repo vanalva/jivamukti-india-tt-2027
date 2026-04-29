@@ -34,10 +34,20 @@
       .u-theme-brand .button_primary:hover{background-color:var(--swatch--secondary-400);border-top-color:var(--swatch--secondary-400);border-right-color:var(--swatch--secondary-400);border-bottom-color:var(--swatch--secondary-400);border-left-color:var(--swatch--secondary-400)}
       .u-theme-brand .button_secondary{color:var(--swatch--brand-text);border-top-color:color-mix(in srgb,var(--swatch--brand-text) 40%,transparent);border-right-color:color-mix(in srgb,var(--swatch--brand-text) 40%,transparent);border-bottom-color:color-mix(in srgb,var(--swatch--brand-text) 40%,transparent);border-left-color:color-mix(in srgb,var(--swatch--brand-text) 40%,transparent)}
       .u-theme-brand .button_secondary:hover{background-color:var(--swatch--brand-text);color:var(--swatch--brand-500);border-top-color:var(--swatch--brand-text);border-right-color:var(--swatch--brand-text);border-bottom-color:var(--swatch--brand-text);border-left-color:var(--swatch--brand-text)}
-      /* Form fields on dark brand bg */
-      .u-theme-brand .form_field{background-color:color-mix(in srgb,var(--swatch--brand-text) 8%,transparent);border-top-color:color-mix(in srgb,var(--swatch--brand-text) 30%,transparent);border-right-color:color-mix(in srgb,var(--swatch--brand-text) 30%,transparent);border-bottom-color:color-mix(in srgb,var(--swatch--brand-text) 30%,transparent);border-left-color:color-mix(in srgb,var(--swatch--brand-text) 30%,transparent);color:var(--swatch--brand-text)}
-      .u-theme-brand .form_field:focus{border-top-color:var(--swatch--brand-text);border-right-color:var(--swatch--brand-text);border-bottom-color:var(--swatch--brand-text);border-left-color:var(--swatch--brand-text)}
-      .u-theme-brand .form_label{color:var(--swatch--brand-text);opacity:0.7}
+      /* Contact section — bright red bg with cream button */
+      .india_contact_section{background-color:#eb292b;color:var(--swatch--light-200)}
+      .india_contact_section .u-heading,
+      .india_contact_section .u-text-style-large,
+      .india_contact_section .u-text-style-main,
+      .india_contact_section .u-text-style-small{color:var(--swatch--light-200)}
+      .india_contact_section .section_divider{background-color:var(--swatch--light-200)}
+      .india_contact_section a{color:var(--swatch--light-200);text-decoration-line:underline}
+      .india_contact_section .form_label{color:var(--swatch--light-200);opacity:0.85}
+      .india_contact_section .form_field{background-color:color-mix(in srgb,var(--swatch--light-200) 10%,transparent);border-top-color:color-mix(in srgb,var(--swatch--light-200) 35%,transparent);border-right-color:color-mix(in srgb,var(--swatch--light-200) 35%,transparent);border-bottom-color:color-mix(in srgb,var(--swatch--light-200) 35%,transparent);border-left-color:color-mix(in srgb,var(--swatch--light-200) 35%,transparent);color:var(--swatch--light-200)}
+      .india_contact_section .form_field::placeholder{color:color-mix(in srgb,var(--swatch--light-200) 55%,transparent)}
+      .india_contact_section .form_field:focus{border-top-color:var(--swatch--light-200);border-right-color:var(--swatch--light-200);border-bottom-color:var(--swatch--light-200);border-left-color:var(--swatch--light-200)}
+      .india_contact_section .button_primary{background-color:var(--swatch--light-200);color:#eb292b;border-top-color:var(--swatch--light-200);border-right-color:var(--swatch--light-200);border-bottom-color:var(--swatch--light-200);border-left-color:var(--swatch--light-200)}
+      .india_contact_section .button_primary:hover{background-color:white;color:#eb292b;border-top-color:white;border-right-color:white;border-bottom-color:white;border-left-color:white}
       .u-theme-dark{background-color:var(--swatch--dark-900);color:var(--swatch--light-200)}
       .u-theme-dark .footer_bottom{border-top-color:color-mix(in srgb,var(--swatch--light-200) 15%,transparent)}
       /* u-section */
@@ -810,7 +820,7 @@
       </section>
 
       <!-- ─── CONTACT ───────────────────────────────────────────── -->
-      <section class="u-section u-theme-brand" id="contact" aria-labelledby="contact-heading">
+      <section class="u-section india_contact_section" id="contact" aria-labelledby="contact-heading">
         <div class="u-container">
           <div class="u-content-wrapper is-centered">
             <div class="section_divider"></div>

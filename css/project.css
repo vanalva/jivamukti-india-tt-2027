@@ -787,8 +787,31 @@
 .contact_form {
   display: flex;
   flex-direction: column;
-  row-gap: var(--_spacing---space--4-24px);
+  row-gap: var(--_spacing---space--5-32px);
   max-width: 36rem;
+  width: 100%;
+}
+
+.contact_form .form_field {
+  height: 3.25rem;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+  font-size: var(--_typography---font-size--text-main);
+}
+
+.contact_form .form_field.is-textarea {
+  height: auto;
+  min-height: 8rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.contact_form .button_primary {
+  height: 3.25rem;
+  padding-left: var(--_spacing---space--7-48px);
+  padding-right: var(--_spacing---space--7-48px);
+  margin-top: var(--_spacing---space--3-16px);
+  align-self: center;
 }
 
 .form_label {
