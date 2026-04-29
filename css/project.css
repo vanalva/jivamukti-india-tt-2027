@@ -496,7 +496,7 @@
 }
 
 .accordion_component.is-active .accordion_toggle_icon {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
 }
 
 .accordion_content_wrap {
@@ -2434,6 +2434,168 @@
 
 .newsletter_modal_close:hover {
   opacity: 1;
+}
+
+/* ── Tuition pricing cards (2-up centered) ── */
+
+.india_pricing_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: var(--site--gutter);
+  grid-row-gap: var(--site--gutter);
+  max-width: 60rem;
+  margin-top: var(--_spacing---space--7-48px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  .india_pricing_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.india_pricing_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: var(--_spacing---space--3-16px);
+  padding-top: var(--_spacing---space--8-64px);
+  padding-right: var(--_spacing---space--6-40px);
+  padding-bottom: var(--_spacing---space--8-64px);
+  padding-left: var(--_spacing---space--6-40px);
+  border-top-width: var(--border-width--main);
+  border-top-style: solid;
+  border-top-color: var(--_theme---border);
+  border-right-width: var(--border-width--main);
+  border-right-style: solid;
+  border-right-color: var(--_theme---border);
+  border-bottom-width: var(--border-width--main);
+  border-bottom-style: solid;
+  border-bottom-color: var(--_theme---border);
+  border-left-width: var(--border-width--main);
+  border-left-style: solid;
+  border-left-color: var(--_theme---border);
+  border-top-left-radius: var(--radius--main);
+  border-top-right-radius: var(--radius--main);
+  border-bottom-left-radius: var(--radius--main);
+  border-bottom-right-radius: var(--radius--main);
+  background-color: var(--_theme---background);
+  position: relative;
+}
+
+.india_pricing_card.is-featured {
+  background-color: var(--swatch--brand-500);
+  color: var(--swatch--brand-text);
+  border-top-color: var(--swatch--brand-500);
+  border-right-color: var(--swatch--brand-500);
+  border-bottom-color: var(--swatch--brand-500);
+  border-left-color: var(--swatch--brand-500);
+}
+
+.india_pricing_badge {
+  font-size: var(--_typography---font-size--text-small);
+  font-weight: var(--_typography---font--primary-bold);
+  letter-spacing: var(--_typography---letter-spacing--widest);
+  text-transform: uppercase;
+  padding-top: var(--_spacing---space--1-8px);
+  padding-right: var(--_spacing---space--3-16px);
+  padding-bottom: var(--_spacing---space--1-8px);
+  padding-left: var(--_spacing---space--3-16px);
+  border-top-left-radius: var(--radius--round);
+  border-top-right-radius: var(--radius--round);
+  border-bottom-left-radius: var(--radius--round);
+  border-bottom-right-radius: var(--radius--round);
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.india_pricing_card.is-featured .india_pricing_badge {
+  background-color: var(--swatch--secondary-500);
+  color: var(--swatch--dark-900);
+}
+
+.india_pricing_card_title {
+  font-size: var(--_typography---font-size--h4);
+  font-weight: var(--_typography---font--primary-medium);
+  margin-top: var(--_spacing---space--2-12px);
+  margin-bottom: 0;
+  line-height: var(--_typography---line-height--small);
+}
+
+.india_pricing_amount {
+  font-size: clamp(3rem, 1.5rem + 5vw, 5.5rem);
+  font-weight: var(--_typography---font--primary-bold);
+  line-height: 1;
+  letter-spacing: var(--_typography---letter-spacing--tight);
+  margin-top: var(--_spacing---space--2-12px);
+  margin-bottom: var(--_spacing---space--1-8px);
+}
+
+.india_pricing_card.is-featured .india_pricing_amount {
+  color: var(--swatch--secondary-500);
+}
+
+.india_pricing_deadline {
+  font-size: var(--_typography---font-size--text-small);
+  font-weight: var(--_typography---font--primary-medium);
+  letter-spacing: var(--_typography---letter-spacing--wider);
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.india_pricing_list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: var(--_spacing---space--5-32px);
+  margin-bottom: var(--_spacing---space--5-32px);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--_spacing---space--2-12px);
+  width: 100%;
+  padding-top: var(--_spacing---space--5-32px);
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.india_pricing_list li {
+  font-size: var(--_typography---font-size--text-small);
+  line-height: var(--_typography---line-height--large);
+  opacity: 0.85;
+}
+
+.india_pricing_cta {
+  margin-top: auto;
+}
+
+.india_pricing_card.is-featured .button_primary {
+  background-color: var(--swatch--secondary-500);
+  color: var(--swatch--dark-900);
+  border-top-color: var(--swatch--secondary-500);
+  border-right-color: var(--swatch--secondary-500);
+  border-bottom-color: var(--swatch--secondary-500);
+  border-left-color: var(--swatch--secondary-500);
+}
+
+.india_pricing_card.is-featured .button_primary:hover {
+  background-color: var(--swatch--secondary-400);
+  border-top-color: var(--swatch--secondary-400);
+  border-right-color: var(--swatch--secondary-400);
+  border-bottom-color: var(--swatch--secondary-400);
+  border-left-color: var(--swatch--secondary-400);
+  color: var(--swatch--dark-900);
+}
+
+.india_pricing_note {
+  text-align: center;
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--_spacing---space--6-40px);
+  opacity: 0.7;
 }
 
 /* ── Reveal-on-scroll ── */
