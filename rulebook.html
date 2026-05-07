@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>India TT 2027 — Design Rulebook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="css/variables.css" rel="stylesheet">
+  <link href="css/framework.css" rel="stylesheet">
+  <link href="css/project.css" rel="stylesheet">
+  <style>
+    /* ── Doc chrome ── */
+    body { background-color: var(--swatch--light-200); }
+    .rb-wrap { max-width: 56rem; margin-left: auto; margin-right: auto; padding-left: var(--site--margin); padding-right: var(--site--margin); padding-top: clamp(2rem, 4vw, 4rem); padding-bottom: clamp(6rem, 10vw, 10rem); }
+
+    /* ── Doc typography ── */
+    .rb-site-title { font-size: var(--_typography---font-size--text-small); font-weight: var(--_typography---font--primary-medium); letter-spacing: var(--_typography---letter-spacing--wider); text-transform: uppercase; opacity: 0.5; margin-bottom: var(--_spacing---space--2-12px); }
+    .rb-h1 { font-size: var(--_typography---font-size--h2); font-weight: var(--_typography---font--primary-medium); letter-spacing: var(--_typography---letter-spacing--tight); line-height: var(--_typography---line-height--small); margin-bottom: var(--_spacing---space--3-16px); }
+    .rb-lead { font-size: var(--_typography---font-size--text-large); line-height: var(--_typography---line-height--large); opacity: 0.75; margin-bottom: var(--_spacing---space--7-48px); }
+    .rb-h2 { font-size: var(--_typography---font-size--h4); font-weight: var(--_typography---font--primary-medium); letter-spacing: var(--_typography---letter-spacing--tight); margin-top: var(--_spacing---space--8-64px); margin-bottom: var(--_spacing---space--4-24px); padding-bottom: var(--_spacing---space--3-16px); border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: var(--swatch--brand-500); display: flex; align-items: center; column-gap: var(--_spacing---space--3-16px); }
+    .rb-h2-num { font-size: var(--_typography---font-size--text-small); font-weight: var(--_typography---font--primary-bold); color: var(--swatch--brand-500); opacity: 0.6; flex-shrink: 0; }
+    .rb-h3 { font-size: var(--_typography---font-size--h5); font-weight: var(--_typography---font--primary-medium); margin-top: var(--_spacing---space--6-40px); margin-bottom: var(--_spacing---space--3-16px); }
+    .rb-p { font-size: var(--_typography---font-size--text-main); line-height: var(--_typography---line-height--huge); margin-bottom: var(--_spacing---space--4-24px); }
+    .rb-p:last-child { margin-bottom: 0; }
+
+    /* ── Code ── */
+    .rb-code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.82em; background-color: var(--swatch--brand-200); color: var(--swatch--brand-700); padding-top: 0.12em; padding-bottom: 0.12em; padding-left: 0.4em; padding-right: 0.4em; border-top-left-radius: var(--radius--small); border-top-right-radius: var(--radius--small); border-bottom-left-radius: var(--radius--small); border-bottom-right-radius: var(--radius--small); white-space: nowrap; }
+
+    /* ── Table ── */
+    .rb-table { width: 100%; border-collapse: collapse; font-size: var(--_typography---font-size--text-small); margin-bottom: var(--_spacing---space--6-40px); }
+    .rb-table th, .rb-table td { text-align: left; padding: var(--_spacing---space--3-16px); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: var(--_theme---border); vertical-align: top; line-height: var(--_typography---line-height--large); }
+    .rb-table th { font-weight: var(--_typography---font--primary-medium); opacity: 0.6; font-size: 0.78em; letter-spacing: var(--_typography---letter-spacing--wider); text-transform: uppercase; }
+    .rb-table tr:last-child td { border-bottom-style: none; }
+    .rb-table td:first-child { white-space: nowrap; }
+
+    /* ── Rule boxes ── */
+    .rb-rule { background-color: var(--swatch--brand-100); border-left-width: 3px; border-left-style: solid; border-left-color: var(--swatch--brand-500); padding-top: var(--_spacing---space--4-24px); padding-bottom: var(--_spacing---space--4-24px); padding-left: var(--_spacing---space--5-32px); padding-right: var(--_spacing---space--5-32px); border-top-right-radius: var(--radius--main); border-bottom-right-radius: var(--radius--main); margin-bottom: var(--_spacing---space--5-32px); }
+    .rb-rule-label { font-size: 0.7rem; font-weight: var(--_typography---font--primary-bold); letter-spacing: var(--_typography---letter-spacing--widest); text-transform: uppercase; color: var(--swatch--brand-500); margin-bottom: var(--_spacing---space--2-12px); }
+    .rb-rule p { font-size: var(--_typography---font-size--text-small); line-height: var(--_typography---line-height--large); margin-bottom: var(--_spacing---space--2-12px); }
+    .rb-rule p:last-child { margin-bottom: 0; }
+
+    .rb-warn { background-color: color-mix(in srgb, #eb292b 8%, white); border-left-width: 3px; border-left-style: solid; border-left-color: #eb292b; padding-top: var(--_spacing---space--3-16px); padding-bottom: var(--_spacing---space--3-16px); padding-left: var(--_spacing---space--4-24px); padding-right: var(--_spacing---space--4-24px); border-top-right-radius: var(--radius--main); border-bottom-right-radius: var(--radius--main); margin-bottom: var(--_spacing---space--4-24px); font-size: var(--_typography---font-size--text-small); line-height: var(--_typography---line-height--large); }
+
+    /* ── Typography demos ── */
+    .rb-type-demo { background-color: var(--swatch--light-100); border-top-left-radius: var(--radius--main); border-top-right-radius: var(--radius--main); border-bottom-left-radius: var(--radius--main); border-bottom-right-radius: var(--radius--main); padding-top: var(--_spacing---space--5-32px); padding-bottom: var(--_spacing---space--5-32px); padding-left: var(--_spacing---space--6-40px); padding-right: var(--_spacing---space--6-40px); margin-bottom: var(--_spacing---space--4-24px); overflow-x: hidden; }
+    .rb-type-label { font-size: 0.68rem; font-weight: var(--_typography---font--primary-bold); letter-spacing: var(--_typography---letter-spacing--widest); text-transform: uppercase; opacity: 0.4; margin-bottom: var(--_spacing---space--2-12px); }
+
+    /* ── Section anatomy diagram ── */
+    .rb-diagram { display: flex; flex-direction: column; row-gap: 0.25rem; margin-bottom: var(--_spacing---space--6-40px); }
+    .rb-diagram-layer { border-top-left-radius: 0.375rem; border-top-right-radius: 0.375rem; border-bottom-left-radius: 0.375rem; border-bottom-right-radius: 0.375rem; border-top-width: 1px; border-top-style: dashed; border-right-width: 1px; border-right-style: dashed; border-bottom-width: 1px; border-bottom-style: dashed; border-left-width: 1px; border-left-style: dashed; padding-top: var(--_spacing---space--3-16px); padding-bottom: var(--_spacing---space--3-16px); padding-left: var(--_spacing---space--4-24px); padding-right: var(--_spacing---space--4-24px); }
+    .rb-diagram-layer.l1 { border-color: var(--swatch--brand-400); background-color: color-mix(in srgb, var(--swatch--brand-500) 5%, transparent); }
+    .rb-diagram-layer.l2 { border-color: var(--swatch--secondary-500); background-color: color-mix(in srgb, var(--swatch--secondary-500) 8%, transparent); margin-left: 1.5rem; }
+    .rb-diagram-layer.l3 { border-color: var(--swatch--tertiary-400); background-color: color-mix(in srgb, var(--swatch--tertiary-500) 5%, transparent); margin-left: 3rem; }
+    .rb-diagram-layer.l4 { border-color: var(--_theme---border); background-color: var(--swatch--light-100); margin-left: 4.5rem; }
+    .rb-diagram-tag { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.78rem; font-weight: 600; }
+    .rb-diagram-desc { font-size: 0.75rem; opacity: 0.65; margin-top: 0.2rem; }
+
+    /* ── Color swatches ── */
+    .rb-swatches { display: flex; flex-wrap: wrap; column-gap: var(--_spacing---space--3-16px); row-gap: var(--_spacing---space--3-16px); margin-bottom: var(--_spacing---space--5-32px); }
+    .rb-swatch { display: flex; flex-direction: column; row-gap: 0.4rem; }
+    .rb-swatch-chip { width: 4rem; height: 2.5rem; border-top-left-radius: var(--radius--small); border-top-right-radius: var(--radius--small); border-bottom-left-radius: var(--radius--small); border-bottom-right-radius: var(--radius--small); border-top-width: 1px; border-top-style: solid; border-right-width: 1px; border-right-style: solid; border-bottom-width: 1px; border-bottom-style: solid; border-left-width: 1px; border-left-style: solid; border-top-color: var(--_theme---border); border-right-color: var(--_theme---border); border-bottom-color: var(--_theme---border); border-left-color: var(--_theme---border); }
+    .rb-swatch-name { font-size: 0.65rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; line-height: 1.3; }
+
+    /* ── Theme demos ── */
+    .rb-theme-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--_spacing---space--4-24px); row-gap: var(--_spacing---space--4-24px); margin-bottom: var(--_spacing---space--5-32px); }
+    @media (max-width: 600px) { .rb-theme-row { grid-template-columns: 1fr; } }
+    .rb-theme-chip { padding-top: var(--_spacing---space--4-24px); padding-bottom: var(--_spacing---space--4-24px); padding-left: var(--_spacing---space--5-32px); padding-right: var(--_spacing---space--5-32px); border-top-left-radius: var(--radius--main); border-top-right-radius: var(--radius--main); border-bottom-left-radius: var(--radius--main); border-bottom-right-radius: var(--radius--main); }
+    .rb-theme-chip-label { font-size: 0.65rem; font-weight: var(--_typography---font--primary-bold); letter-spacing: var(--_typography---letter-spacing--widest); text-transform: uppercase; opacity: 0.5; margin-bottom: 0.4rem; }
+    .rb-theme-chip-class { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .rb-theme-chip-desc { font-size: 0.78rem; line-height: 1.5; opacity: 0.8; }
+
+    /* ── Section index ── */
+    .rb-toc { background-color: var(--swatch--light-100); border-top-left-radius: var(--radius--main); border-top-right-radius: var(--radius--main); border-bottom-left-radius: var(--radius--main); border-bottom-right-radius: var(--radius--main); padding-top: var(--_spacing---space--5-32px); padding-bottom: var(--_spacing---space--5-32px); padding-left: var(--_spacing---space--6-40px); padding-right: var(--_spacing---space--6-40px); margin-bottom: var(--_spacing---space--7-48px); }
+    .rb-toc-title { font-size: var(--_typography---font-size--text-small); font-weight: var(--_typography---font--primary-bold); letter-spacing: var(--_typography---letter-spacing--wider); text-transform: uppercase; margin-bottom: var(--_spacing---space--3-16px); opacity: 0.5; }
+    .rb-toc ol { padding-left: 1.25rem; display: flex; flex-direction: column; row-gap: 0.35rem; }
+    .rb-toc li { font-size: var(--_typography---font-size--text-small); line-height: var(--_typography---line-height--large); }
+    .rb-toc a { color: var(--swatch--brand-500); }
+    .rb-toc a:hover { text-decoration-line: underline; }
+
+    /* ── Component anatomy ── */
+    .rb-component-example { background-color: var(--swatch--light-100); border-top-left-radius: var(--radius--main); border-top-right-radius: var(--radius--main); border-bottom-left-radius: var(--radius--main); border-bottom-right-radius: var(--radius--main); padding-top: var(--_spacing---space--5-32px); padding-bottom: var(--_spacing---space--5-32px); padding-left: var(--_spacing---space--5-32px); padding-right: var(--_spacing---space--5-32px); margin-bottom: var(--_spacing---space--4-24px); }
+    .rb-component-label { font-size: 0.65rem; font-weight: var(--_typography---font--primary-bold); letter-spacing: var(--_typography---letter-spacing--widest); text-transform: uppercase; opacity: 0.4; margin-bottom: var(--_spacing---space--3-16px); }
+
+    /* ── hr ── */
+    .rb-hr { border-top-width: 1px; border-top-style: solid; border-top-color: var(--_theme---border); margin-top: var(--_spacing---space--7-48px); margin-bottom: var(--_spacing---space--7-48px); }
+  </style>
+</head>
+<body class="u-theme-light">
+<div class="rb-wrap">
+
+  <!-- Header -->
+  <p class="rb-site-title">Jivamukti India TT 2027</p>
+  <h1 class="rb-h1">Design Rulebook</h1>
+  <p class="rb-lead">Reference guide for implementing the India 2027 page. Read this before touching the HTML. It tells you what class to use, when to use it, and what to avoid. The styleguide (<a href="styleguide.html">styleguide.html</a>) is the companion token reference.</p>
+
+  <!-- TOC -->
+  <nav class="rb-toc" aria-label="Contents">
+    <p class="rb-toc-title">Contents</p>
+    <ol>
+      <li><a href="#typography">Typography hierarchy — the 5 levels</a></li>
+      <li><a href="#line-height">Line height rules</a></li>
+      <li><a href="#section-anatomy">Section anatomy — the 3-layer structure</a></li>
+      <li><a href="#spacing">Spacing — when to use which token</a></li>
+      <li><a href="#themes">Theme variants — light, brand, dark, contact</a></li>
+      <li><a href="#alignment">Alignment — centered vs. left-aligned</a></li>
+      <li><a href="#buttons">Buttons — primary vs. secondary</a></li>
+      <li><a href="#components">Component patterns</a></li>
+      <li><a href="#page-sections">Page section map</a></li>
+    </ol>
+  </nav>
+
+
+  <!-- ════════════════════════════════
+       1. TYPOGRAPHY HIERARCHY
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="typography"><span class="rb-h2-num">01</span> Typography hierarchy — the 5 levels</h2>
+
+  <p class="rb-p">Every piece of text on the page maps to one of five levels. Always use the class + attribute combination below. Never set <code class="rb-code">font-size</code> directly on an element — all sizes are in the variable system and will scale fluidly.</p>
+
+  <!-- LEVEL 1: display -->
+  <h3 class="rb-h3">Level 1 — Page title <code class="rb-code">data-style="display"</code></h3>
+  <div class="rb-type-demo">
+    <p class="rb-type-label">Rendered output</p>
+    <h2 class="u-heading" data-style="display">Prerequisites</h2>
+  </div>
+  <table class="rb-table">
+    <thead><tr><th>Property</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Classes</td><td><code class="rb-code">u-heading</code> + attribute <code class="rb-code">data-style="display"</code></td></tr>
+      <tr><td>HTML tag</td><td><code class="rb-code">&lt;h2&gt;</code> (the page already has an <code class="rb-code">&lt;h1&gt;</code> in the hero logo — use <code class="rb-code">&lt;h2&gt;</code> for visual display headings)</td></tr>
+      <tr><td>Font size</td><td><code class="rb-code">--_typography---font-size--display</code> → clamps 44px → 80px</td></tr>
+      <tr><td>Line height</td><td><code class="rb-code">1.2</code> (tight — for large decorative headings)</td></tr>
+      <tr><td>Use for</td><td>One landmark title per section when you want maximum visual weight. Currently used on the Prerequisites section only.</td></tr>
+      <tr><td>Do not use for</td><td>Multiple headings on the same screen. Section headers that introduce grids or lists — use Level 2 instead.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- LEVEL 2: h2 -->
+  <h3 class="rb-h3">Level 2 — Section header <code class="rb-code">data-style="h2"</code></h3>
+  <div class="rb-type-demo">
+    <p class="rb-type-label">Rendered output</p>
+    <h2 class="u-heading" data-style="h2">The Faculty</h2>
+  </div>
+  <table class="rb-table">
+    <thead><tr><th>Property</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Classes</td><td><code class="rb-code">u-heading</code> + attribute <code class="rb-code">data-style="h2"</code></td></tr>
+      <tr><td>HTML tag</td><td><code class="rb-code">&lt;h2&gt;</code></td></tr>
+      <tr><td>Font size</td><td><code class="rb-code">--_typography---font-size--h2</code> → clamps 32px → 56px</td></tr>
+      <tr><td>Line height</td><td><code class="rb-code">1.2</code> (tight)</td></tr>
+      <tr><td>Use for</td><td>The main heading of every standard section: Faculty, Five Tenets, Housing Options, Travel, Gallery, Tuition, Testimonials, Prerequisites. This is the default section header.</td></tr>
+      <tr><td>Pair with</td><td>Always preceded by a <code class="rb-code">&lt;div class="section_divider"&gt;&lt;/div&gt;</code> inside a <code class="rb-code">u-content-wrapper</code>. Exception: sections with a custom header layout (Bhakti, Housing, Dates) skip the wrapper.</td></tr>
+      <tr><td>Also used inside</td><td>Tenet panels — the tenet name is visually <code class="rb-code">h2</code> scale even though it lives inside a tab panel.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- LEVEL 3: h3 -->
+  <h3 class="rb-h3">Level 3 — Subsection / room name <code class="rb-code">data-style="h3"</code></h3>
+  <div class="rb-type-demo">
+    <p class="rb-type-label">Rendered output</p>
+    <h3 class="u-heading" data-style="h3">Gokul Kutir</h3>
+  </div>
+  <table class="rb-table">
+    <thead><tr><th>Property</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Classes</td><td><code class="rb-code">u-heading</code> + attribute <code class="rb-code">data-style="h3"</code></td></tr>
+      <tr><td>HTML tag</td><td><code class="rb-code">&lt;h3&gt;</code></td></tr>
+      <tr><td>Font size</td><td><code class="rb-code">--_typography---font-size--h3</code> → clamps 24px → 40px</td></tr>
+      <tr><td>Line height</td><td><code class="rb-code">1.3</code> (medium)</td></tr>
+      <tr><td>Use for</td><td>Sub-items inside a section that already has an h2 header. Currently: room names (Gokul Kutir, Mahavan Cottage) inside Housing Options.</td></tr>
+      <tr><td>Do not use for</td><td>Accordion headings (use Level 5) or card titles (use their own component class).</td></tr>
+    </tbody>
+  </table>
+
+  <!-- LEVEL 4 skipped — not used in this project -->
+  <div class="rb-warn">
+    <strong>Note — h4 is not used on this page.</strong> Skip <code class="rb-code">data-style="h4"</code>. If content feels like it needs a fourth heading level, reconsider the structure — most cases should be a card title (component class) or a label (small caps text), not a heading.
+  </div>
+
+  <!-- LEVEL 5: h5 -->
+  <h3 class="rb-h3">Level 4 (in use) — Accordion toggle / label <code class="rb-code">data-style="h5"</code></h3>
+  <div class="rb-type-demo">
+    <p class="rb-type-label">Rendered output</p>
+    <h3 class="u-heading" data-style="h5">Visa &amp; Immigration</h3>
+  </div>
+  <table class="rb-table">
+    <thead><tr><th>Property</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Classes</td><td><code class="rb-code">u-heading</code> + attribute <code class="rb-code">data-style="h5"</code></td></tr>
+      <tr><td>HTML tag</td><td><code class="rb-code">&lt;h3&gt;</code> (semantic h3 even though visually h5-sized)</td></tr>
+      <tr><td>Font size</td><td><code class="rb-code">--_typography---font-size--h5</code> → clamps 16px → 20px</td></tr>
+      <tr><td>Line height</td><td><code class="rb-code">1.4</code> (large)</td></tr>
+      <tr><td>Use for</td><td>Accordion toggle labels. Also suitable for any compact header inside a card or list item that shouldn't compete with section titles.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- BODY TEXT -->
+  <h3 class="rb-h3">Body text — three sizes</h3>
+  <div class="rb-type-demo">
+    <p class="rb-type-label">large — intro paragraphs</p>
+    <p class="u-text-style-large">Our faculty of senior Jivamukti Yoga Teachers are pleased to offer their wisdom &amp; knowledge in the land of its source.</p>
+    <p class="rb-type-label" style="margin-top: var(--_spacing---space--4-24px);">main — body copy</p>
+    <p class="u-text-style-main">Bhakti is the yoga of devotion, which takes the energetic science of yoga from practice into an experience of transcendental joy.</p>
+    <p class="rb-type-label" style="margin-top: var(--_spacing---space--4-24px);">small — labels, fine print</p>
+    <p class="u-text-style-small">Applications open — 300HR India Teacher Training, February 6 – March 5, 2027</p>
+  </div>
+
+  <table class="rb-table">
+    <thead><tr><th>Class</th><th>Size (range)</th><th>Use for</th><th>Do not use for</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code class="rb-code">u-text-style-large</code></td>
+        <td>16px → 22px</td>
+        <td>The first paragraph under a section header — the "intro" sentence that sets context before the main grid or list. One per section at most.</td>
+        <td>Body copy inside cards, accordions, or repeated list items.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">u-text-style-main</code></td>
+        <td>14px → 20px</td>
+        <td>All body paragraphs: accordion content, profile rows (Bhakti section), tenet descriptions, accordion content, housing intro, travel info.</td>
+        <td>Section intro (use large). UI labels (use small).</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">u-text-style-small</code></td>
+        <td>12px → 14px</td>
+        <td>Nav banner text, amenity labels, legal/fine print, caption text, any UI label that shouldn't compete with body copy.</td>
+        <td>Running paragraph text — it will feel too small at body length.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="rb-rule">
+    <p class="rb-rule-label">Typography rule</p>
+    <p>Never use <code class="rb-code">u-text-style-large</code> twice in the same section. It is a spotlight — one per section. If two paragraphs both feel important, the first is large, the second switches to main.</p>
+    <p>On the page copy: do not rewrite or shorten existing copy. The client has confirmed it should stay as-is unless they explicitly provide new copy.</p>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       2. LINE HEIGHT
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="line-height"><span class="rb-h2-num">02</span> Line height rules</h2>
+
+  <p class="rb-p">Line heights are pre-assigned by the text style classes. Do not override them unless there is a specific layout reason.</p>
+
+  <table class="rb-table">
+    <thead><tr><th>Token</th><th>Value</th><th>Used by</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code class="rb-code">--_typography---line-height--small</code></td>
+        <td>1.2</td>
+        <td>Display, H1, H2 headings. Tight because large type needs less leading.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_typography---line-height--medium</code></td>
+        <td>1.3</td>
+        <td>H3, H4 headings.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_typography---line-height--large</code></td>
+        <td>1.4</td>
+        <td>H5, H6, <code class="rb-code">u-text-style-large</code>, <code class="rb-code">u-text-style-small</code>.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_typography---line-height--huge</code></td>
+        <td>1.6</td>
+        <td><code class="rb-code">u-text-style-main</code> — body text at reading length needs the most leading for comfort.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="rb-rule">
+    <p class="rb-rule-label">Line height rule</p>
+    <p>Use <code class="rb-code">line-height--huge</code> (1.6) only for running body text. Use <code class="rb-code">line-height--large</code> (1.4) for anything under 3 lines — accordions, labels, captions. Headings always get <code class="rb-code">small</code> or <code class="rb-code">medium</code> — never 1.6 on a heading.</p>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       3. SECTION ANATOMY
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="section-anatomy"><span class="rb-h2-num">03</span> Section anatomy — the 3-layer structure</h2>
+
+  <p class="rb-p">Standard content sections follow a strict 3-layer nesting. Understanding this structure is the most important pattern to get right — every spacing issue on the page comes from breaking it.</p>
+
+  <div class="rb-diagram">
+    <div class="rb-diagram-layer l1">
+      <p class="rb-diagram-tag">&lt;section class="u-section"&gt;</p>
+      <p class="rb-diagram-desc">Adds top + bottom padding via <code class="rb-code">--_spacing---section-space--main-112px</code> (≈64px → 112px fluid). This is the breathing room between sections.</p>
+    </div>
+    <div class="rb-diagram-layer l2">
+      <p class="rb-diagram-tag">&lt;div class="u-container"&gt;</p>
+      <p class="rb-diagram-desc">Constrains width to <code class="rb-code">90rem</code> max and adds horizontal page margins. Everything goes inside this.</p>
+    </div>
+    <div class="rb-diagram-layer l3">
+      <p class="rb-diagram-tag">&lt;div class="u-content-wrapper"&gt; <em style="opacity:.6; font-style:normal;">(optional — only when there's a section header)</em></p>
+      <p class="rb-diagram-desc">Max-width 44rem. Holds the <code class="rb-code">section_divider</code> + <code class="rb-code">h2</code> + intro <code class="rb-code">u-text-style-large</code> paragraph. Add <code class="rb-code">is-centered</code> for centered alignment (see §6).</p>
+    </div>
+    <div class="rb-diagram-layer l4">
+      <p class="rb-diagram-tag">Content grid / list / component</p>
+      <p class="rb-diagram-desc">The actual content: faculty grid, accordion list, housing rooms, prereq cards, etc. Always a sibling of <code class="rb-code">u-content-wrapper</code>, never nested inside it.</p>
+    </div>
+  </div>
+
+  <div class="rb-rule">
+    <p class="rb-rule-label">When to use u-content-wrapper</p>
+    <p>Use it whenever the section has a header block (divider + h2 + optional intro paragraph). Skip it when the section heading is styled with its own custom class (e.g. <code class="rb-code">india_bhakti_heading</code>, <code class="rb-code">india_housing_heading</code>) or the section has no visible header (video section, marquee).</p>
+  </div>
+
+  <div class="rb-rule">
+    <p class="rb-rule-label">Custom-layout sections (no u-section wrapper)</p>
+    <p>Four sections do NOT use <code class="rb-code">u-section</code> because they have unique full-bleed or split layouts: <strong>Hero</strong>, <strong>Karmabhumi / Land of Action</strong>, <strong>Application Requirements</strong>, and <strong>Registration Dates</strong>. These manage their own spacing internally. Do not add <code class="rb-code">u-section</code> to them.</p>
+  </div>
+
+  <h3 class="rb-h3">The section_divider</h3>
+  <p class="rb-p">A thin horizontal rule that always appears immediately before the <code class="rb-code">h2</code> heading. It is a visual signal that a new section is starting. It is <strong>never skipped</strong> when a <code class="rb-code">u-content-wrapper</code> is present.</p>
+  <div class="rb-component-example">
+    <p class="rb-component-label">Markup</p>
+    <pre style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.78rem; line-height: 1.6; overflow-x: auto;">&lt;div class="u-content-wrapper"&gt;
+  &lt;div class="section_divider"&gt;&lt;/div&gt;
+  &lt;h2 class="u-heading" data-style="h2" id="section-id"&gt;Section Title&lt;/h2&gt;
+  &lt;p class="u-text-style-large"&gt;Intro paragraph (optional).&lt;/p&gt;
+&lt;/div&gt;</pre>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       4. SPACING
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="spacing"><span class="rb-h2-num">04</span> Spacing — when to use which token</h2>
+
+  <p class="rb-p">All spacing uses CSS variables. Never hardcode pixel or rem values. Here are the tokens in use on this page and what they're for:</p>
+
+  <table class="rb-table">
+    <thead><tr><th>Token</th><th>Range</th><th>Use for</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code class="rb-code">--section-space--main-112px</code></td>
+        <td>64px → 112px</td>
+        <td>Applied automatically by <code class="rb-code">u-section</code>. Section top/bottom padding. Do not set manually.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--section-space--small-80px</code></td>
+        <td>48px → 80px</td>
+        <td>Compact sections where the full main spacing would feel excessive. Not currently used on this page but available if a new tight section is added.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_spacing---space--8-64px</code></td>
+        <td>40px → 64px</td>
+        <td>Gap between the <code class="rb-code">u-content-wrapper</code> and the content grid/list below it. Row gap in the faculty grid.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_spacing---space--7-48px</code></td>
+        <td>36px → 48px</td>
+        <td>Margin below the <code class="rb-code">u-content-wrapper</code>. Gap between major blocks within a section.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_spacing---space--6-40px</code></td>
+        <td>32px → 40px</td>
+        <td>Card internal top/bottom padding. Generous internal spacing.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_spacing---space--5-32px</code></td>
+        <td>28px → 32px</td>
+        <td>Button horizontal padding. Section panel internal padding (land panel, pricing card).</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_spacing---space--4-24px</code></td>
+        <td>20px → 24px</td>
+        <td>Default margin between paragraphs and text elements. Gap between card columns.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_spacing---space--3-16px</code></td>
+        <td>14px → 16px</td>
+        <td>Internal card padding (tight). Nav link gaps. Dropdown item padding.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_spacing---space--2-12px</code></td>
+        <td>10px → 12px</td>
+        <td>Tight gaps: between divider and heading, between heading and badge/role label.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">--_spacing---space--1-8px</code></td>
+        <td>6px → 8px</td>
+        <td>Micro gaps: icon-to-text, amenity list item spacing, nav banner padding.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="rb-rule">
+    <p class="rb-rule-label">Spacing rule</p>
+    <p>Move up one step when something feels tight. Move down one step when something feels too spread out. Never skip more than one step in a single transition — e.g. do not go from space--3 directly to space--6 for consecutive elements in the same list.</p>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       5. THEMES
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="themes"><span class="rb-h2-num">05</span> Theme variants — light, brand, dark, contact</h2>
+
+  <p class="rb-p">This project has four distinct surface colors. Adding the right theme class to a section wrapper changes background, text, border, and button colors automatically — you do not need to set colors individually.</p>
+
+  <div class="rb-theme-row">
+
+    <div class="rb-theme-chip" style="background-color: var(--swatch--light-200); color: var(--swatch--dark-900);">
+      <p class="rb-theme-chip-label">Default</p>
+      <p class="rb-theme-chip-class">u-theme-light</p>
+      <p class="rb-theme-chip-desc">Warm peach (#efd8c9). Used on <code class="rb-code">&lt;body&gt;</code> — every standard section inherits this unless overridden. Most of the page is this color.</p>
+    </div>
+
+    <div class="rb-theme-chip" style="background-color: var(--swatch--brand-500); color: var(--swatch--brand-text);">
+      <p class="rb-theme-chip-label">Brand</p>
+      <p class="rb-theme-chip-class">u-theme-brand</p>
+      <p class="rb-theme-chip-desc">Deep burgundy (#541820). Used on hero left panel, testimonials section. Apply to the section element or any wrapper — all descendant text/buttons/cards adapt automatically.</p>
+    </div>
+
+    <div class="rb-theme-chip" style="background-color: var(--swatch--dark-900); color: var(--swatch--light-200);">
+      <p class="rb-theme-chip-label">Dark</p>
+      <p class="rb-theme-chip-class">u-theme-dark</p>
+      <p class="rb-theme-chip-desc">Near-black (#1a1a1a). Used on the footer. Do not use on content sections above the footer.</p>
+    </div>
+
+    <div class="rb-theme-chip" style="background-color: #eb292b; color: var(--swatch--light-200);">
+      <p class="rb-theme-chip-label">Contact</p>
+      <p class="rb-theme-chip-class">india_contact_section</p>
+      <p class="rb-theme-chip-desc">Bright Jivamukti red (#eb292b). Applied via <code class="rb-code">india_contact_section</code> class — not a LUMOS theme class, but an override block in the CSS embed. Used only for the Contact/Form section.</p>
+    </div>
+
+  </div>
+
+  <div class="rb-rule">
+    <p class="rb-rule-label">Theme rule</p>
+    <p>Never set <code class="rb-code">color</code>, <code class="rb-code">background-color</code>, or border colors directly in a new custom class. Use a theme class on the ancestor and let it cascade. If you need a one-off override (e.g. the gold nav banner), use an existing specific class like <code class="rb-code">is-gold</code> — do not create a new inline style.</p>
+  </div>
+
+  <h3 class="rb-h3">Gold / secondary accent</h3>
+  <p class="rb-p">The warm gold (<code class="rb-code">--swatch--secondary-500</code>, #daab85) is used sparingly: the nav announcement banner (<code class="rb-code">is-gold</code>), button overrides inside <code class="rb-code">u-theme-brand</code> sections. Do not introduce gold as a background for new sections — it's an accent only.</p>
+
+
+  <!-- ════════════════════════════════
+       6. ALIGNMENT
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="alignment"><span class="rb-h2-num">06</span> Alignment — centered vs. left-aligned</h2>
+
+  <p class="rb-p">All sections default to left-aligned text. Use <code class="rb-code">is-centered</code> only in specific cases.</p>
+
+  <table class="rb-table">
+    <thead><tr><th>Class</th><th>When to use</th><th>Currently on</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code class="rb-code">u-content-wrapper</code></td>
+        <td>Default. Section header block: left-aligned text, divider flush left.</td>
+        <td>Faculty, Travel, Gallery, Testimonials, Video testimonials sections.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">u-content-wrapper is-centered</code></td>
+        <td>When the section content below is symmetric (a centered grid, a price table, a swiper that spans full width). The wrapper text and divider both center.</td>
+        <td>Tuition &amp; Fees section (pricing grid is symmetric).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="rb-rule">
+    <p class="rb-rule-label">Alignment rule</p>
+    <p>Default to left. Ask: "is the content below symmetric?" — symmetric = equal columns, centered carousel, single CTA. If yes: <code class="rb-code">is-centered</code>. Asymmetric grids, lists, and image+text rows always stay left.</p>
+  </div>
+
+  <h3 class="rb-h3">profile_layout — alternating image/text rows</h3>
+  <p class="rb-p">The Bhakti section uses <code class="rb-code">profile_layout</code> for alternating rows (image left / text right). Add <code class="rb-code">is-reversed</code> to flip the order for even-numbered rows. This creates visual rhythm without changing the HTML reading order.</p>
+  <div class="rb-component-example">
+    <p class="rb-component-label">Pattern</p>
+    <pre style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.78rem; line-height: 1.6; overflow-x: auto;">&lt;!-- Row 1: image left, text right --&gt;
+&lt;div class="profile_layout"&gt; ... &lt;/div&gt;
+
+&lt;!-- Row 2: text left, image right --&gt;
+&lt;div class="profile_layout is-reversed"&gt; ... &lt;/div&gt;
+
+&lt;!-- Row 3: image left, text right again --&gt;
+&lt;div class="profile_layout"&gt; ... &lt;/div&gt;</pre>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       7. BUTTONS
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="buttons"><span class="rb-h2-num">07</span> Buttons — primary vs. secondary</h2>
+
+  <div class="rb-component-example">
+    <p class="rb-component-label">Live preview</p>
+    <div style="display: flex; align-items: center; column-gap: var(--_spacing---space--4-24px); flex-wrap: wrap; row-gap: var(--_spacing---space--3-16px);">
+      <a href="#" class="button_primary">Apply Now</a>
+      <a href="#" class="button_secondary">Learn More</a>
+    </div>
+  </div>
+
+  <table class="rb-table">
+    <thead><tr><th>Class</th><th>Visual</th><th>Use for</th><th>Do not use for</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code class="rb-code">button_primary</code></td>
+        <td>Filled burgundy, cream text, pill shape</td>
+        <td>The single most important CTA on a section — always "Apply Now" or equivalent direct action. Maximum one per section.</td>
+        <td>Secondary actions, navigation links, or repeated CTAs that aren't the main action.</td>
+      </tr>
+      <tr>
+        <td><code class="rb-code">button_secondary</code></td>
+        <td>Transparent with border, dark text, pill shape</td>
+        <td>Secondary actions: "Join Us", "Learn More", "View All". Can appear alongside a primary button or alone.</td>
+        <td>Never as the only button on a section where a strong CTA is needed — primary should lead.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="rb-rule">
+    <p class="rb-rule-label">Button rule</p>
+    <p>Buttons inherit color from their theme context. Inside <code class="rb-code">u-theme-brand</code> (burgundy), buttons automatically switch to gold/cream. Inside <code class="rb-code">india_contact_section</code> (red), they switch to cream/red. You do not need to add extra classes — just use <code class="rb-code">button_primary</code> or <code class="rb-code">button_secondary</code> and the theme does the rest.</p>
+    <p>Always use <code class="rb-code">&lt;a&gt;</code> for navigation CTAs and <code class="rb-code">&lt;button type="button"&gt;</code> for JS-triggered actions (tab switching, accordion toggles).</p>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       8. COMPONENTS
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="components"><span class="rb-h2-num">08</span> Component patterns</h2>
+
+  <!-- Faculty card -->
+  <h3 class="rb-h3">Faculty card — <code class="rb-code">faculty_card</code></h3>
+  <p class="rb-p">Used in the Faculty section. 5-column grid on desktop, 3 on tablet, 2 on mobile. Each card: photo → thin divider → body (role label + name + credential).</p>
+  <div class="rb-component-example">
+    <p class="rb-component-label">Structure</p>
+    <pre style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.78rem; line-height: 1.6; overflow-x: auto;">&lt;div class="faculty_card"&gt;
+  &lt;img src="../assets/[photo]" alt="[Name]" class="faculty_card_photo" loading="lazy"&gt;
+  &lt;div class="faculty_card_divider"&gt;&lt;/div&gt;
+  &lt;div class="faculty_card_body"&gt;
+    &lt;div class="faculty_card_role"&gt;[Role e.g. Facilitator]&lt;/div&gt;
+    &lt;div class="faculty_card_name"&gt;[Full Name]&lt;/div&gt;
+    &lt;div class="faculty_card_credential"&gt;[e.g. Advanced Certified]&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+  </div>
+  <div class="rb-warn">Photo aspect ratio is square (1:1). Crop images to square before using. The <code class="rb-code">faculty_card_photo</code> class enforces this with <code class="rb-code">object-fit: cover</code>.</div>
+
+  <!-- Tenet tabs -->
+  <h3 class="rb-h3">Tenet tabs — <code class="rb-code">tenets_tab_wrap</code></h3>
+  <p class="rb-p">Interactive tab component for the Five Tenets section. Left column: tab buttons. Right column: content panels (all stacked, only one visible at a time via <code class="rb-code">is-active</code> class). The JS in the page handles switching.</p>
+  <div class="rb-rule">
+    <p class="rb-rule-label">Key rule</p>
+    <p>Each panel uses <code class="rb-code">data-style="h2"</code> for the tenet name (large, decorative) and <code class="rb-code">u-text-style-main</code> for the description. The Sanskrit subtitle uses <code class="rb-code">tenets_content_sanskrit</code> — do not change its class to a heading style; it is not a navigation heading.</p>
+    <p>There are exactly 5 tabs: Ahimsa, Nada, Bhakti, Dhyana, Shastra. Do not add or remove tabs without updating both the tab button list and the panel list.</p>
+  </div>
+
+  <!-- Accordion -->
+  <h3 class="rb-h3">Accordion — <code class="rb-code">accordion_component</code></h3>
+  <p class="rb-p">Used in the Travel Info section. Each accordion has a toggle button (always <code class="rb-code">h5</code>-level heading inside) and a collapsible content area. JS handles the open/close via <code class="rb-code">aria-expanded</code>.</p>
+  <div class="rb-component-example">
+    <p class="rb-component-label">Structure</p>
+    <pre style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.78rem; line-height: 1.6; overflow-x: auto;">&lt;div class="accordion_component"&gt;
+  &lt;div class="accordion_toggle_button" role="button" tabindex="0" aria-expanded="false"&gt;
+    &lt;h3 class="accordion_toggle_heading u-heading" data-style="h5"&gt;[Title]&lt;/h3&gt;
+    &lt;svg class="accordion_toggle_icon" ...&gt;&lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class="accordion_content_wrap"&gt;
+    &lt;div class="accordion_content_padding"&gt;
+      &lt;p class="u-text-style-main"&gt;[Content]&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+  </div>
+  <div class="rb-warn">All body text inside accordion panels uses <code class="rb-code">u-text-style-main</code>. Do not use large inside a collapsed panel — the user hasn't opened it yet, so it is not the "intro" of a section.</div>
+
+  <!-- Prereq cards -->
+  <h3 class="rb-h3">Prerequisites card — <code class="rb-code">india_prereq_card</code></h3>
+  <p class="rb-p">Three-column grid. Each card: title (its own <code class="rb-code">india_prereq_card_title</code> class — not a heading style, it uses the project's own sizing) → divider → book list (each item is a <code class="rb-code">india_prereq_book_item</code> paragraph) → CTA button at bottom.</p>
+  <div class="rb-rule">
+    <p class="rb-rule-label">Copy rule</p>
+    <p>The reading list copy is exact and must not be changed — it is official program content. If an item is updated, use the exact text provided by the client, including italics/capitalization.</p>
+  </div>
+
+  <!-- Testimonial cards -->
+  <h3 class="rb-h3">Testimonial — <code class="rb-code">testimonial_card</code></h3>
+  <p class="rb-p">Lives inside a Swiper carousel on the burgundy (<code class="rb-code">u-theme-brand</code>) section. On brand backgrounds the white fill is removed automatically — see <a href="styleguide.html#card-surfaces-brand">styleguide §Card surfaces on u-theme-brand</a>. Always include the checkmark image and a name/location attribution.</p>
+
+  <!-- Pricing cards -->
+  <h3 class="rb-h3">Pricing card — <code class="rb-code">india_pricing_card</code></h3>
+  <p class="rb-p">Two cards side by side on a light section. The <strong>featured</strong> card (Early Bird) gets the <code class="rb-code">is-featured</code> combo class — filled burgundy background, inverted text. The standard card stays transparent with a burgundy border. Do not apply <code class="rb-code">is-featured</code> to more than one card.</p>
+
+
+  <!-- ════════════════════════════════
+       9. PAGE SECTION MAP
+  ════════════════════════════════ -->
+  <h2 class="rb-h2" id="page-sections"><span class="rb-h2-num">09</span> Page section map</h2>
+
+  <p class="rb-p">Quick reference: every section on the page, its wrapper class, header level, and any special rules.</p>
+
+  <table class="rb-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Section</th>
+        <th>Wrapper</th>
+        <th>Header level</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Hero</td>
+        <td><code class="rb-code">india_hero</code></td>
+        <td>—</td>
+        <td>Split layout: brand panel left, photo right. No <code class="rb-code">u-section</code>. Logo image is the h1 equivalent.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Marquee</td>
+        <td><code class="rb-code">india_marquee_section</code></td>
+        <td>—</td>
+        <td><code class="rb-code">aria-hidden="true"</code>. Decorative only — do not put meaningful copy here.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Faculty</td>
+        <td><code class="rb-code">u-section</code></td>
+        <td>h2 in <code class="rb-code">u-content-wrapper</code></td>
+        <td>5-column faculty grid. <code class="rb-code">u-text-style-large</code> intro.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Karmabhumi / Land of Action</td>
+        <td><code class="rb-code">india_land_section</code></td>
+        <td>Custom kicker (not a standard heading)</td>
+        <td>No <code class="rb-code">u-section</code>. Full-width Swiper above cream panel. Two-column justified text.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Video</td>
+        <td><code class="rb-code">india_video_section</code></td>
+        <td>—</td>
+        <td>Placeholder image only for now. No heading needed.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Five Tenets</td>
+        <td><code class="rb-code">u-section india_tenets_section</code></td>
+        <td>h2 inside each panel</td>
+        <td>Tab component. No <code class="rb-code">u-content-wrapper</code> — tabs are the navigation. Tenet name uses <code class="rb-code">data-style="h2"</code>.</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Bhakti / Radhanath / Journey Home</td>
+        <td><code class="rb-code">u-section</code></td>
+        <td>h2 custom class <code class="rb-code">india_bhakti_heading</code></td>
+        <td>Three alternating <code class="rb-code">profile_layout</code> rows. No <code class="rb-code">u-content-wrapper</code>. Heading uses custom positioning class + <code class="rb-code">data-style="h2"</code>.</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Application Requirements</td>
+        <td><code class="rb-code">india_apply_req_section</code></td>
+        <td>Custom <code class="rb-code">india_apply_req_title</code></td>
+        <td>Full-bleed background image + dark overlay. No <code class="rb-code">u-section</code>. Title and list are white on the overlay.</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Housing Options</td>
+        <td><code class="rb-code">u-section</code></td>
+        <td>h2 custom class <code class="rb-code">india_housing_heading</code>, room names h3 <code class="rb-code">data-style="h3"</code></td>
+        <td>No <code class="rb-code">u-content-wrapper</code> — heading is placed inline with the layout. Room names are h3, amenity labels use their own class (not a text-style class).</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Registration Dates &amp; Deadlines</td>
+        <td><code class="rb-code">india_dates_section</code></td>
+        <td>Custom <code class="rb-code">india_dates_heading</code></td>
+        <td>Split layout: dates table left, photo right. No <code class="rb-code">u-section</code>.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Prerequisites</td>
+        <td><code class="rb-code">u-section</code></td>
+        <td>h2 <code class="rb-code">data-style="display"</code> — the only display-level heading on the page</td>
+        <td>Three prereq cards. No <code class="rb-code">u-content-wrapper</code> — display heading stands alone.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Travel Info</td>
+        <td><code class="rb-code">u-section</code></td>
+        <td>h2 in <code class="rb-code">u-content-wrapper</code></td>
+        <td>Four accordions. Toggle headings are h3 visually-styled as h5.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Photo Gallery</td>
+        <td><code class="rb-code">gallery_section</code></td>
+        <td>h2 in <code class="rb-code">u-content-wrapper</code> inside <code class="rb-code">u-container</code></td>
+        <td>Full-bleed Swiper outside the container. The <code class="rb-code">u-container</code> wraps only the header block.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Tuition &amp; Fees</td>
+        <td><code class="rb-code">u-section</code></td>
+        <td>h2 in <code class="rb-code">u-content-wrapper is-centered</code></td>
+        <td>Centered layout (pricing grid is symmetric). Two cards: <code class="rb-code">is-featured</code> + standard.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Testimonials (Swiper)</td>
+        <td><code class="rb-code">u-section u-theme-brand</code></td>
+        <td>h2 in <code class="rb-code">u-content-wrapper</code></td>
+        <td>Burgundy background. Cards have no white fill (auto-overridden by <code class="rb-code">u-theme-brand</code>).</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Video Testimonials (Marquee)</td>
+        <td><code class="rb-code">u-section</code></td>
+        <td>h2 in <code class="rb-code">u-content-wrapper</code></td>
+        <td>Infinite marquee of video thumbnail cards. Pauses on hover.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Contact / Application Form</td>
+        <td><code class="rb-code">india_contact_section</code></td>
+        <td>h2 in <code class="rb-code">u-content-wrapper</code></td>
+        <td>Bright red background via CSS embed override (not a LUMOS theme class). Form fields and buttons are automatically styled for this background.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Footer</td>
+        <td><code class="rb-code">u-theme-dark</code></td>
+        <td>—</td>
+        <td>Near-black background. Footer links, legal text, and dividers are all automatically styled.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="rb-hr">
+
+  <p class="rb-p" style="opacity: 0.5; font-size: var(--_typography---font-size--text-small);">This rulebook describes the India TT 2027 page as built. For token/component detail, see <a href="styleguide.html">styleguide.html</a>. For CSS variable definitions, see <a href="css/variables.css">css/variables.css</a>.</p>
+
+</div>
+</body>
+</html>

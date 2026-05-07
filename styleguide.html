@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jivamukti India TT 2027 — Design system (project notes)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="css/variables.css" rel="stylesheet">
+  <link href="css/framework.css" rel="stylesheet">
+  <link href="css/project.css" rel="stylesheet">
+  <style>
+    .doc-wrap { max-width: 52rem; margin-left: auto; margin-right: auto; padding: var(--site--margin); padding-top: clamp(2rem, 4vw, 4rem); padding-bottom: clamp(4rem, 8vw, 8rem); }
+    .doc-h1 { font-size: var(--_typography---font-size--h2); font-weight: var(--_typography---font--primary-medium); letter-spacing: var(--_typography---letter-spacing--tight); margin-bottom: var(--_spacing---space--2-12px); }
+    .doc-lead { font-size: var(--_typography---font-size--text-large); line-height: var(--_typography---line-height--large); opacity: 0.85; margin-bottom: var(--_spacing---space--8-64px); }
+    .doc-h2 { font-size: var(--_typography---font-size--h4); font-weight: var(--_typography---font--primary-medium); letter-spacing: var(--_typography---letter-spacing--tight); margin-top: var(--_spacing---space--7-48px); margin-bottom: var(--_spacing---space--4-24px); padding-bottom: var(--_spacing---space--2-12px); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: var(--_theme---border); }
+    .doc-p { font-size: var(--_typography---font-size--text-main); line-height: var(--_typography---line-height--huge); margin-bottom: var(--_spacing---space--4-24px); }
+    .doc-table { width: 100%; border-collapse: collapse; font-size: var(--_typography---font-size--text-small); }
+    .doc-table th, .doc-table td { text-align: left; padding: var(--_spacing---space--3-16px); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: var(--_theme---border); vertical-align: top; }
+    .doc-table th { font-weight: var(--_typography---font--primary-medium); opacity: 0.75; }
+    .doc-code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; font-size: 0.85em; background: var(--_theme---background-2); padding: 0.15em 0.4em; border-radius: var(--radius--small); }
+    .doc-demo-brand { padding: var(--_spacing---space--7-48px); border-radius: var(--radius--main); margin-top: var(--_spacing---space--5-32px); }
+  </style>
+</head>
+<body class="u-theme-light">
+
+  <div class="doc-wrap">
+    <h1 class="doc-h1">India TT 2027 — Project design notes</h1>
+    <p class="doc-lead">Companion to <code class="doc-code">src/css/project.css</code>. Extend this page when documenting new India-specific components.</p>
+
+    <h2 id="card-surfaces-brand" class="doc-h2">Card surfaces on <code class="doc-code">u-theme-brand</code></h2>
+    <p class="doc-p"><span class="doc-code">accommodation_card</span> and <span class="doc-code">testimonial_card</span> default to a white content slab (<span class="doc-code">--swatch--light-100</span>) for use on neutral sections. Inside burgundy sections (<span class="doc-code">.u-theme-brand</span>), override rules remove that fill so the card frame sits directly on brand color with readable text.</p>
+
+    <table class="doc-table" aria-label="Card surface rules">
+      <thead>
+        <tr>
+          <th scope="col">Selector</th>
+          <th scope="col">Behavior</th>
+          <th scope="col">Tokens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="doc-code">.u-theme-brand .accommodation_card</span></td>
+          <td>Transparent background; text and amenities inherit brand-readable color.</td>
+          <td><span class="doc-code">transparent</span>, <span class="doc-code">--swatch--brand-text</span>; borders use inherited <span class="doc-code">--_theme---border</span> (≈ <span class="doc-code">--swatch--brand-text-o20</span> on brand).</td>
+        </tr>
+        <tr>
+          <td><span class="doc-code">.u-theme-brand .testimonial_card</span></td>
+          <td>Same: no white slab on testimonials over burgundy.</td>
+          <td>Same as above. Quote and checkmark inherit theme.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="doc-p">No extra HTML classes are required: wrap the section with <span class="doc-code">u-section u-theme-brand</span> (or any container with theme variables), and the descendant rules apply automatically.</p>
+
+    <section class="doc-demo-brand u-theme-brand u-section" aria-label="Minimal brand preview" style="padding-top: clamp(2rem, 4vw, 3rem); padding-bottom: clamp(2rem, 4vw, 3rem); border-radius: var(--radius--main); margin-bottom: var(--_spacing---space--5-32px);">
+      <div class="u-container">
+        <p class="u-text-style-small" style="opacity: .75; margin-bottom: var(--_spacing---space--4-24px);">Preview · bordered frame on burgundy · no inner white panel</p>
+        <div class="testimonial_grid" style="margin-top: 0;">
+          <article class="testimonial_card">
+            <img src="assets/india-2026-testimonial-checkmark.png" alt="" class="testimonial_checkmark" aria-hidden="true" loading="lazy" width="32" height="32">
+            <p class="testimonial_quote">Sample quote — card surface is transparent.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <p class="doc-p"><strong>Pricing rows</strong> (<span class="doc-code">pricing_card</span>) live on light sections and continue to use <span class="doc-code">--_theme---background-2</span>; they are unchanged by this pattern.</p>
+
+    <h2 id="venue-logo" class="doc-h2">Venue logo (<code class="doc-code">india_venue_logo</code>)</h2>
+    <p class="doc-p"><span class="doc-code">u-content-wrapper</span> is a column flex container; flex items default to <span class="doc-code">align-self: stretch</span>, so a direct-child <span class="doc-code">img</span> with a fixed height was stretching to full row width. <span class="doc-code">india_venue_logo</span> sets <span class="doc-code">align-self: flex-start</span>, <span class="doc-code">object-fit: contain</span>, and a sane <span class="doc-code">max-width</span> so the Karmabhumi mark keeps its aspect ratio.</p>
+
+    <h2 id="land-of-action" class="doc-h2">Karmabhumi / Land of action (<code class="doc-code">india_land_section</code>)</h2>
+    <p class="doc-p">Matches the WordPress block: full-width <span class="doc-code">swiper</span> (<span class="doc-code">#landActionSwiper</span>), then a cream panel (<span class="doc-code">india_land_panel</span> uses <span class="doc-code">--swatch--secondary-100</span>) with enlarged script logo (<span class="doc-code">india_land_karmabhumi_logo</span>), uppercase kicker, and two equal text columns (<span class="doc-code">india_land_columns</span> / <span class="doc-code">india_land_text</span>) aligned on the same baseline with justified body copy. The five-tenets diagram is not used here — it belongs under the Tenets section only.</p>
+
+    <h2 id="pricing-cards" class="doc-h2">Tuition/pricing tier cards</h2>
+    <p class="doc-p"><span class="doc-code">pricing_grid</span> holds two columns (one on small breakpoints). Standard tier uses <strong>transparent</strong> backgrounds with a tinted burgundy border so the section stays on peach (<span class="doc-code">--swatch--light-200</span>) — no white panel. Featured tier fills with <span class="doc-code">--swatch--brand-500</span> (no shadow).</p>
+    <p class="doc-p"><span class="doc-code">button_primary</span> on the featured burgundy card would match the surface and disappear; overrides give the gold fill (<span class="doc-code">--swatch--secondary-500</span>) matching <span class="doc-code">.u-theme-brand .button_primary</span>. The alternate tier uses the default light-theme primary button (burgundy fill). Links include <span class="doc-code">pricing_card_cta</span> for <span class="doc-code">margin-top: auto</span> so CTAs align at the bottom.</p>
+  </div>
+
+</body>
+</html>
