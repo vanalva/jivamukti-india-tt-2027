@@ -795,6 +795,15 @@
   margin-top: var(--_spacing---space--1-8px);
 }
 
+.faculty_card_more {
+  display: inline-block;
+  margin-top: var(--_spacing---space--2-12px);
+  font-size: var(--_typography---font-size--text-small);
+  font-weight: var(--_typography---font--primary-medium);
+  color: var(--_theme---text);
+  text-decoration-line: underline;
+}
+
 /* ── Form Fields ── */
 
 .form_field {
