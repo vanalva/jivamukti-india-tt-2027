@@ -1613,6 +1613,16 @@
   padding-bottom: var(--_spacing---section-space--main-112px);
 }
 
+.india_video_label {
+  text-align: center;
+  font-size: var(--_typography---font-size--text-small);
+  font-weight: var(--_typography---font--primary-medium);
+  letter-spacing: var(--_typography---letter-spacing--wide);
+  text-transform: uppercase;
+  color: var(--_theme---text);
+  margin-bottom: var(--_spacing---space--5-24px);
+}
+
 .india_video_wrap {
   position: relative;
   aspect-ratio: 16 / 9;
