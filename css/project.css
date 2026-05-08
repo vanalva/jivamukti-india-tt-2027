@@ -504,7 +504,7 @@
   display: none;
   position: relative;
   overflow-x: visible;
-  overflow-y: clip;
+  overflow-y: visible;
 }
 
 .accordion_content_padding {
@@ -2261,6 +2261,23 @@
   column-gap: var(--_spacing---space--4-24px);
   flex-wrap: wrap;
   row-gap: var(--_spacing---space--4-24px);
+}
+
+.india_dates_left .button_secondary {
+  color: var(--swatch--brand-text);
+  border-top-color: color-mix(in srgb, var(--swatch--brand-text) 40%, transparent);
+  border-right-color: color-mix(in srgb, var(--swatch--brand-text) 40%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--swatch--brand-text) 40%, transparent);
+  border-left-color: color-mix(in srgb, var(--swatch--brand-text) 40%, transparent);
+}
+
+.india_dates_left .button_secondary:hover {
+  background-color: var(--swatch--brand-text);
+  color: var(--swatch--brand-500);
+  border-top-color: var(--swatch--brand-text);
+  border-right-color: var(--swatch--brand-text);
+  border-bottom-color: var(--swatch--brand-text);
+  border-left-color: var(--swatch--brand-text);
 }
 
 .india_dates_tt_logo {
