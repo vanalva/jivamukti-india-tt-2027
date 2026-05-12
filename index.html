@@ -354,116 +354,111 @@
         </div>
       </section>
 
-      <!-- ─── 4. FIVE TENETS (Tab component) ──────────────────── -->
-      <section class="u-section india_tenets_section" aria-label="The Five Tenets">
+      <!-- ─── 4. FIVE TENETS ──────────────────────────────────── -->
+      <section class="u-section india_tenets_section u-theme-brand" aria-label="The Five Tenets">
         <div class="u-container">
 
-          <div class="tenets_tab_wrap" id="tenetsTabs">
+          <!-- Desktop: 3-col grid — all 5 tenets visible simultaneously -->
+          <div class="india_tenets_grid">
 
-            <!-- Left: tab buttons -->
-            <div class="tenets_tab_left">
-              <div class="tenets_tab_list" role="tablist" aria-label="Five Tenets">
-                <button class="tenets_tab_btn is-active" data-tab="ahimsa" role="tab" aria-selected="true" aria-controls="panel-ahimsa">
-                  <span class="tenets_tab_text">Ahimsa</span>
-                  <span class="tenets_tab_line" aria-hidden="true"></span>
-                </button>
-                <button class="tenets_tab_btn" data-tab="nada" role="tab" aria-selected="false" aria-controls="panel-nada">
-                  <span class="tenets_tab_text">Nada</span>
-                  <span class="tenets_tab_line" aria-hidden="true"></span>
-                </button>
-                <button class="tenets_tab_btn" data-tab="bhakti" role="tab" aria-selected="false" aria-controls="panel-bhakti">
-                  <span class="tenets_tab_text">Bhakti</span>
-                  <span class="tenets_tab_line" aria-hidden="true"></span>
-                </button>
-                <button class="tenets_tab_btn" data-tab="dhyana" role="tab" aria-selected="false" aria-controls="panel-dhyana">
-                  <span class="tenets_tab_text">Dhyana</span>
-                  <span class="tenets_tab_line" aria-hidden="true"></span>
-                </button>
-                <button class="tenets_tab_btn" data-tab="shastra" role="tab" aria-selected="false" aria-controls="panel-shastra">
-                  <span class="tenets_tab_text">Shastra</span>
-                  <span class="tenets_tab_line" aria-hidden="true"></span>
-                </button>
-              </div>
-              <div class="tenets_controls">
-                <button class="tenets_ctrl_btn tenets_prev" aria-label="Previous tenet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <button class="tenets_ctrl_btn tenets_next" aria-label="Next tenet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-              </div>
+            <!-- Row 1: Ahimsa | Center title | Bhakti -->
+            <div class="india_tenet_card">
+              <img src="assets/tenets-ahimsa.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+              <div class="india_tenet_name">Ahimsa</div>
+              <div class="india_tenet_sanskrit">अहिंसा</div>
+              <p class="u-text-style-main india_tenet_body">Indian cuisine naturally lends itself to a sattvic vegan diet, encouraging lightness and spirituality through compassionate eating. The animals living around the village in the safe sanctuary will teach us the power of compassion and unconditional love.</p>
             </div>
 
-            <!-- Right: content panels (all overlay same grid cell) -->
-            <div class="tenets_panel_wrap">
-
-              <div class="tenets_content_item is-active" id="panel-ahimsa" role="tabpanel" aria-labelledby="tab-ahimsa">
-                <div class="tenets_content_layout">
-                  <div class="tenets_content_text">
-                    <h3 class="u-heading" data-style="h2">Ahimsa</h3>
-                    <p class="tenets_content_sanskrit">अहिंसा — Non-Violence</p>
-                    <p class="u-text-style-main">Indian cuisine naturally lends itself to a sattvic vegan diet, encouraging lightness and spirituality through compassionate eating. The animals living around the village in the safe sanctuary will teach us the power of compassion and unconditional love.</p>
-                  </div>
-                  <div class="tenets_content_icon">
-                    <img src="assets/tenets-ahimsa.png" alt="" class="tenets_content_icon_img" loading="lazy" aria-hidden="true">
-                  </div>
-                </div>
-              </div>
-
-              <div class="tenets_content_item" id="panel-nada" role="tabpanel" aria-labelledby="tab-nada">
-                <div class="tenets_content_layout">
-                  <div class="tenets_content_text">
-                    <h3 class="u-heading" data-style="h2">Nada</h3>
-                    <p class="tenets_content_sanskrit">नाद — Sound</p>
-                    <p class="u-text-style-main">Kirtan is a way of life at Govardhan Ecovillage. The sounds of nature, devotion and kindness will help you develop the ability of listening.</p>
-                  </div>
-                  <div class="tenets_content_icon">
-                    <img src="assets/tenets-nada.png" alt="" class="tenets_content_icon_img" loading="lazy" aria-hidden="true">
-                  </div>
-                </div>
-              </div>
-
-              <div class="tenets_content_item" id="panel-bhakti" role="tabpanel" aria-labelledby="tab-bhakti">
-                <div class="tenets_content_layout">
-                  <div class="tenets_content_text">
-                    <h3 class="u-heading" data-style="h2">Bhakti</h3>
-                    <p class="tenets_content_sanskrit">भक्ति — Devotion</p>
-                    <p class="u-text-style-main">Temples and ashram community inspire the heart and mind. Devotion is practiced everywhere in the village, everyone is inspired to serve others.</p>
-                  </div>
-                  <div class="tenets_content_icon">
-                    <img src="assets/tenets-bhakti.png" alt="" class="tenets_content_icon_img" loading="lazy" aria-hidden="true">
-                  </div>
-                </div>
-              </div>
-
-              <div class="tenets_content_item" id="panel-dhyana" role="tabpanel" aria-labelledby="tab-dhyana">
-                <div class="tenets_content_layout">
-                  <div class="tenets_content_text">
-                    <h3 class="u-heading" data-style="h2">Dhyana</h3>
-                    <p class="tenets_content_sanskrit">ध्यान — Meditation</p>
-                    <p class="u-text-style-main">Remove distractions of daily life, so meditation practice becomes effortless. Practiced daily, meditation will become a regular ritual where at the start and end of the study days.</p>
-                  </div>
-                  <div class="tenets_content_icon">
-                    <img src="assets/tenets-dhyana.png" alt="" class="tenets_content_icon_img" loading="lazy" aria-hidden="true">
-                  </div>
-                </div>
-              </div>
-
-              <div class="tenets_content_item" id="panel-shastra" role="tabpanel" aria-labelledby="tab-shastra">
-                <div class="tenets_content_layout">
-                  <div class="tenets_content_text">
-                    <h3 class="u-heading" data-style="h2">Shastra</h3>
-                    <p class="tenets_content_sanskrit">शास्त्र — Scripture</p>
-                    <p class="u-text-style-main">Be surrounded by individuals who know the holy scriptures inside and out, and learn use them as a guidepost for everyday life.</p>
-                  </div>
-                  <div class="tenets_content_icon">
-                    <img src="assets/tenets-shastra.png" alt="" class="tenets_content_icon_img" loading="lazy" aria-hidden="true">
-                  </div>
-                </div>
-              </div>
-
+            <div class="india_tenets_center_title">
+              <img src="assets/india-2026-5-tenets-with-logo.png" alt="The 5 Tenets of Jivamukti Yoga Come Alive in India" class="india_tenets_center_img" loading="lazy">
             </div>
+
+            <div class="india_tenet_card">
+              <img src="assets/tenets-bhakti.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+              <div class="india_tenet_name">Bhakti</div>
+              <div class="india_tenet_sanskrit">भक्ति</div>
+              <p class="u-text-style-main india_tenet_body">Temples and ashram community inspire the heart and mind. Devotion is practiced everywhere in the village, everyone is inspired to serve others.</p>
+            </div>
+
+            <!-- Row 2: Nada | Dhyana | Shastra -->
+            <div class="india_tenet_card">
+              <img src="assets/tenets-nada.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+              <div class="india_tenet_name">Nada</div>
+              <div class="india_tenet_sanskrit">नाद</div>
+              <p class="u-text-style-main india_tenet_body">Kirtan is a way of life at Govardhan Ecovillage. The sounds of nature, devotion and kindness will help you develop the ability of listening.</p>
+            </div>
+
+            <div class="india_tenet_card">
+              <img src="assets/tenets-dhyana.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+              <div class="india_tenet_name">Dhyana</div>
+              <div class="india_tenet_sanskrit">ध्यान</div>
+              <p class="u-text-style-main india_tenet_body">Remove distractions of daily life, so meditation practice becomes effortless. Practiced daily, meditation will become a regular ritual where at the start and end of the study days.</p>
+            </div>
+
+            <div class="india_tenet_card">
+              <img src="assets/tenets-shastra.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+              <div class="india_tenet_name">Shastra</div>
+              <div class="india_tenet_sanskrit">शास्त्र</div>
+              <p class="u-text-style-main india_tenet_body">Be surrounded by individuals who know the holy scriptures inside and out, and learn use them as a guidepost for everyday life.</p>
+            </div>
+
           </div>
+
+          <!-- Mobile: center title + Swiper carousel (hidden on desktop) -->
+          <div class="india_tenets_mobile">
+
+            <div class="india_tenets_center_title">
+              <img src="assets/india-2026-5-tenets-with-logo.png" alt="The 5 Tenets of Jivamukti Yoga Come Alive in India" class="india_tenets_center_img" loading="lazy">
+            </div>
+
+            <div class="swiper india_tenets_swiper" id="tenetsSwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="india_tenet_card">
+                    <img src="assets/tenets-ahimsa.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+                    <div class="india_tenet_name">Ahimsa</div>
+                    <div class="india_tenet_sanskrit">अहिंसा</div>
+                    <p class="u-text-style-main india_tenet_body">Indian cuisine naturally lends itself to a sattvic vegan diet, encouraging lightness and spirituality through compassionate eating. The animals living around the village in the safe sanctuary will teach us the power of compassion and unconditional love.</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="india_tenet_card">
+                    <img src="assets/tenets-bhakti.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+                    <div class="india_tenet_name">Bhakti</div>
+                    <div class="india_tenet_sanskrit">भक्ति</div>
+                    <p class="u-text-style-main india_tenet_body">Temples and ashram community inspire the heart and mind. Devotion is practiced everywhere in the village, everyone is inspired to serve others.</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="india_tenet_card">
+                    <img src="assets/tenets-nada.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+                    <div class="india_tenet_name">Nada</div>
+                    <div class="india_tenet_sanskrit">नाद</div>
+                    <p class="u-text-style-main india_tenet_body">Kirtan is a way of life at Govardhan Ecovillage. The sounds of nature, devotion and kindness will help you develop the ability of listening.</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="india_tenet_card">
+                    <img src="assets/tenets-dhyana.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+                    <div class="india_tenet_name">Dhyana</div>
+                    <div class="india_tenet_sanskrit">ध्यान</div>
+                    <p class="u-text-style-main india_tenet_body">Remove distractions of daily life, so meditation practice becomes effortless. Practiced daily, meditation will become a regular ritual where at the start and end of the study days.</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="india_tenet_card">
+                    <img src="assets/tenets-shastra.png" alt="" class="india_tenet_icon" loading="lazy" aria-hidden="true">
+                    <div class="india_tenet_name">Shastra</div>
+                    <div class="india_tenet_sanskrit">शास्त्र</div>
+                    <p class="u-text-style-main india_tenet_body">Be surrounded by individuals who know the holy scriptures inside and out, and learn use them as a guidepost for everyday life.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination india_tenets_pagination"></div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
@@ -1154,14 +1149,28 @@
           console.warn('landActionSwiper init failed', e);
         }
       }
+
+      var tenetsEl = document.getElementById('tenetsSwiper');
+      if (tenetsEl) {
+        try {
+          new Swiper(tenetsEl, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            pagination: { el: '.india_tenets_pagination', clickable: true },
+          });
+        } catch (e) {
+          console.warn('tenetsSwiper init failed', e);
+        }
+      }
     })();
   </script></div>
 
   <div class="u-embed-js"><script>
-    // Tenets tab component — autoplay + progress line
+    // (tenets tab component removed — sidebar-tab-nav saved to LUMOS extensions)
     (function() {
-      var DURATION = 6000;
       var wrap   = document.getElementById('tenetsTabs');
+      if (!wrap) return;
       var btns   = Array.from(wrap.querySelectorAll('.tenets_tab_btn'));
       var panels = Array.from(wrap.querySelectorAll('.tenets_content_item'));
       var current = 0;

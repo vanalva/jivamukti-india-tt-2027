@@ -1533,11 +1533,118 @@
   text-align-last: start;
 }
 
-/* Clear separation from Five Tenets (was visually merging with prior burgundy block) */
+/* ── Five Tenets — source-style grid ── */
+
 .india_tenets_section {
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: color-mix(in srgb, var(--swatch--brand-500) 14%, transparent);
+  border-top-width: 0;
+}
+
+.india_tenets_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: var(--_spacing---space--6-40px);
+  row-gap: var(--_spacing---space--9-80px);
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .india_tenets_grid {
+    column-gap: var(--_spacing---space--5-32px);
+    row-gap: var(--_spacing---space--7-48px);
+  }
+}
+
+@media (max-width: 767px) {
+  .india_tenets_grid {
+    display: none;
+  }
+}
+
+.india_tenet_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: var(--_spacing---space--3-16px);
+}
+
+.india_tenet_icon {
+  width: 7rem;
+  height: 7rem;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.india_tenet_name {
+  font-size: var(--_typography---font-size--h3);
+  font-weight: var(--_typography---font--primary-bold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--swatch--brand-text);
+  line-height: var(--_typography---line-height--small);
+}
+
+.india_tenet_sanskrit {
+  font-size: var(--_typography---font-size--text-large);
+  opacity: 0.8;
+  color: var(--swatch--brand-text);
+  line-height: var(--_typography---line-height--medium);
+}
+
+.india_tenet_body {
+  color: var(--swatch--brand-text);
+  opacity: 0.85;
+}
+
+.india_tenets_center_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.india_tenets_center_img {
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  display: block;
+}
+
+/* Mobile layout */
+.india_tenets_mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .india_tenets_mobile {
+    display: block;
+  }
+  .india_tenets_mobile .india_tenets_center_img {
+    max-width: 18rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--_spacing---space--6-40px);
+  }
+  .india_tenet_card {
+    padding-left: var(--_spacing---space--4-24px);
+    padding-right: var(--_spacing---space--4-24px);
+  }
+}
+
+/* Swiper pagination dots on dark background */
+.india_tenets_pagination {
+  position: static;
+  margin-top: var(--_spacing---space--5-32px);
+}
+
+.india_tenets_pagination .swiper-pagination-bullet {
+  background-color: var(--swatch--brand-text);
+  opacity: 0.35;
+}
+
+.india_tenets_pagination .swiper-pagination-bullet-active {
+  opacity: 1;
 }
 
 /* ── Bhakti Section Images ── */
