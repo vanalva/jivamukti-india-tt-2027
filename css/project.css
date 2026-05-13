@@ -1428,6 +1428,13 @@
 .india_land_slider {
   position: relative;
   width: 100%;
+  border-top-left-radius: var(--radius--main);
+  border-top-right-radius: var(--radius--main);
+  border-bottom-left-radius: var(--radius--main);
+  border-bottom-right-radius: var(--radius--main);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin-bottom: var(--_spacing---space--7-48px);
   min-height: min(52vh, 32rem);
   --swiper-theme-color: var(--swatch--light-200);
   --swiper-navigation-size: 1.75rem;
@@ -1453,7 +1460,7 @@
 }
 
 .india_land_dots.swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: 1rem;
+  bottom: 0.75rem;
   left: 0;
   right: 0;
 }
