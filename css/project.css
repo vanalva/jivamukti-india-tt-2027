@@ -2176,11 +2176,7 @@
 }
 
 .india_apply_req_title {
-  font-size: var(--_typography---font-size--display);
-  font-weight: var(--_typography---font--primary-bold);
-  letter-spacing: var(--_typography---letter-spacing--tight);
   color: var(--swatch--light-200);
-  line-height: var(--_typography---line-height--small);
 }
 
 .india_apply_steps {
