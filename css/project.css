@@ -1573,7 +1573,6 @@
   height: 11rem;
   object-fit: contain;
   display: block;
-  filter: brightness(0) saturate(100%) invert(20%) sepia(90%) saturate(700%) hue-rotate(340deg) brightness(110%);
 }
 
 .india_tenet_body {
