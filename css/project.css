@@ -1569,11 +1569,11 @@
 }
 
 .india_tenet_icon {
-  width: 7rem;
-  height: 7rem;
+  width: 11rem;
+  height: 11rem;
   object-fit: contain;
   display: block;
-  filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(310deg) brightness(0.85);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(90%) saturate(700%) hue-rotate(340deg) brightness(110%);
 }
 
 .india_tenet_body {
