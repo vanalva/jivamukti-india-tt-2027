@@ -2541,6 +2541,11 @@
   row-gap: var(--_spacing---space--3-16px);
 }
 
+.india_prereq_icon {
+  color: var(--swatch--brand-500);
+  margin-bottom: var(--_spacing---space--2-12px);
+}
+
 .india_prereq_card_title {
   font-size: var(--_typography---font-size--h4);
   font-weight: var(--_typography---font--primary-medium);
