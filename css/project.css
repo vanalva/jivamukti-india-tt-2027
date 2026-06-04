@@ -959,15 +959,6 @@
   flex-direction: column;
 }
 
-/* ── Shared: Section Divider ── */
-
-.section_divider {
-  width: 3rem;
-  height: var(--border-width--main);
-  background-color: var(--_theme---heading-accent);
-  margin-bottom: var(--_spacing---space--5-32px);
-}
-
 /* ── Tenets Tab Component ── */
 
 .tenets_tab_wrap {
@@ -1255,7 +1246,7 @@
 
 .india_hero {
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -1273,7 +1264,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: var(--_spacing---section-space--page-top-224px);
+  padding-top: var(--_spacing---section-space--main-112px);
   padding-bottom: var(--_spacing---section-space--main-112px);
   padding-left: var(--site--margin);
   padding-right: var(--site--margin);
@@ -1358,7 +1349,7 @@
 .india_marquee_inner {
   display: inline-flex;
   animation-name: marquee-scroll;
-  animation-duration: 35s;
+  animation-duration: 55s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -1381,7 +1372,7 @@
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: var(--site--gutter);
   grid-row-gap: var(--site--gutter);
-  margin-top: var(--_spacing---space--7-48px);
+  margin-top: 0;
 }
 
 /* Top row: first 3 cards span 4 cols each (3 × 4 = 12) → centered trio */
@@ -1435,14 +1426,14 @@
   overflow-x: hidden;
   overflow-y: hidden;
   margin-bottom: var(--_spacing---space--7-48px);
-  min-height: min(52vh, 32rem);
+  min-height: min(72vh, 44rem);
   --swiper-theme-color: var(--swatch--light-200);
   --swiper-navigation-size: 1.75rem;
 }
 
 .india_land_slide_img {
   width: 100%;
-  height: min(52vh, 32rem);
+  height: min(72vh, 44rem);
   object-fit: cover;
   display: block;
 }
@@ -1661,9 +1652,6 @@
 /* ── Bhakti 3-row section ── */
 
 .india_bhakti_heading {
-  text-transform: uppercase;
-  letter-spacing: var(--_typography---letter-spacing--wider);
-  color: var(--swatch--brand-500);
   text-align: center;
 }
 
@@ -1676,22 +1664,31 @@
 
 .india_bhakti_cols {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: var(--_spacing---space--7-48px);
-  row-gap: var(--_spacing---space--6-40px);
+  grid-template-columns: 1fr;
+  row-gap: var(--_spacing---space--7-48px);
   margin-top: var(--_spacing---space--8-64px);
-  align-items: start;
+  max-width: 58rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .india_bhakti_col {
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--_spacing---space--4-24px);
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  column-gap: var(--_spacing---space--6-40px);
+  row-gap: var(--_spacing---space--2-12px);
+  align-items: start;
+}
+
+/* Image occupies left column, spanning the title + paragraph rows */
+.india_bhakti_col > img {
+  grid-column: 1;
+  grid-row: 1 / span 2;
 }
 
 .india_bhakti_col img {
   width: 100%;
-  height: 18rem;
+  height: 13rem;
   object-fit: cover;
   object-position: center center;
   border-top-left-radius: var(--radius--main);
@@ -1699,11 +1696,24 @@
   border-bottom-left-radius: var(--radius--main);
   border-bottom-right-radius: var(--radius--main);
   display: block;
+  align-self: start;
+}
+
+/* Journey Home is a flat-lay photo — fill the box like the other two (override the 13rem cap) */
+.india_bhakti_col img.india_book_cover_img {
+  object-fit: cover;
+  max-width: none;
 }
 
 @media (max-width: 767px) {
   .india_bhakti_cols {
+    max-width: none;
+  }
+  .india_bhakti_col {
     grid-template-columns: 1fr;
+  }
+  .india_bhakti_col > img {
+    grid-row: auto;
   }
 }
 
@@ -1757,11 +1767,11 @@
 
 .india_video_label {
   text-align: center;
-  font-size: var(--_typography---font-size--text-small);
+  font-size: clamp(2rem, 5vw, 5rem);
   font-weight: var(--_typography---font--primary-medium);
-  letter-spacing: var(--_typography---letter-spacing--wide);
+  letter-spacing: var(--_typography---letter-spacing--wider);
   text-transform: uppercase;
-  color: var(--_theme---text);
+  color: #ea2828;
   margin-bottom: var(--_spacing---space--5-24px);
 }
 
@@ -2277,7 +2287,7 @@
 /* ── Application Requirements (bold red infographic) ── */
 
 .india_apply_req_section {
-  background-color: #ea2828;
+  background-color: var(--swatch--brand-500);
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -2299,7 +2309,7 @@
 
 .india_apply_steps {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: var(--_spacing---space--8-64px);
   row-gap: var(--_spacing---space--6-40px);
   width: 100%;
@@ -2316,7 +2326,7 @@
 .india_apply_step {
   display: flex;
   column-gap: var(--_spacing---space--4-24px);
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .india_apply_step_num {
@@ -2350,6 +2360,7 @@
 .india_apply_step_body {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   row-gap: var(--_spacing---space--3-16px);
 }
 
@@ -2368,9 +2379,11 @@
 }
 
 .india_apply_cta {
-  align-self: flex-start;
+  align-self: stretch;
+  width: 100%;
+  margin-top: auto;
   background-color: var(--swatch--light-200);
-  color: #ea2828;
+  color: var(--swatch--brand-500);
   border-top-color: var(--swatch--light-200);
   border-right-color: var(--swatch--light-200);
   border-bottom-color: var(--swatch--light-200);
@@ -2380,9 +2393,6 @@
 /* ── Housing Options ── */
 
 .india_housing_heading {
-  text-transform: uppercase;
-  letter-spacing: var(--_typography---letter-spacing--wider);
-  color: var(--swatch--brand-500);
   text-align: center;
 }
 
@@ -2485,7 +2495,7 @@
 .india_dates_section {
   display: grid;
   grid-template-columns: 55fr 45fr;
-  min-height: 70vh;
+  min-height: auto;
 }
 
 @media (max-width: 767px) {
@@ -2511,8 +2521,7 @@
   font-size: var(--_typography---font-size--h2);
   font-weight: var(--_typography---font--primary-medium);
   line-height: var(--_typography---line-height--small);
-  text-transform: uppercase;
-  letter-spacing: var(--_typography---letter-spacing--wide);
+  letter-spacing: var(--_typography---letter-spacing--tight);
   color: var(--swatch--brand-text);
   margin-top: 0;
   margin-bottom: 0;
@@ -2611,8 +2620,6 @@
 /* ── Prerequisites (3-column cards) ── */
 
 .india_prereq_title {
-  text-transform: uppercase;
-  letter-spacing: var(--_typography---letter-spacing--widest);
   text-align: center;
 }
 
@@ -2919,7 +2926,17 @@ body.nav-locked {
   opacity: 1;
 }
 
-/* ── Tuition pricing cards (2-up centered) ── */
+/* ── Tuition pricing — simple centered text (reverted to old design) ── */
+
+.india_pricing_simple {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--_spacing---space--3-16px);
+  margin-top: var(--_spacing---space--7-48px);
+}
+
+/* ── Tuition pricing cards (2-up centered) — retired, kept for reference ── */
 
 .india_pricing_grid {
   display: grid;
