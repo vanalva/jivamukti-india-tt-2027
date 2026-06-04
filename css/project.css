@@ -2648,6 +2648,7 @@
   grid-column-gap: var(--site--gutter);
   grid-row-gap: var(--site--gutter);
   margin-top: var(--_spacing---space--8-64px);
+  align-items: start;
 }
 
 @media (max-width: 991px) {
