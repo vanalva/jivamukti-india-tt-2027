@@ -2227,6 +2227,7 @@
 /* ── Gallery (Swiper) ── */
 
 .gallery_section {
+  background-color: var(--swatch--brand-100);
   padding-top: var(--_spacing---section-space--main-112px);
   padding-bottom: var(--_spacing---section-space--main-112px);
   overflow-x: hidden;
