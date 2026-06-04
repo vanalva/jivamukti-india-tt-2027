@@ -2227,11 +2227,21 @@
 /* ── Gallery (Swiper) ── */
 
 .gallery_section {
-  background-color: var(--swatch--brand-100);
+  background-color: #ea2828;
   padding-top: var(--_spacing---section-space--main-112px);
   padding-bottom: var(--_spacing---section-space--main-112px);
   overflow-x: hidden;
   overflow-y: visible;
+}
+
+/* Bright-red gallery: light text + extra gap between header and images */
+.gallery_section .u-heading,
+.gallery_section .u-text-style-main {
+  color: var(--swatch--light-200);
+}
+
+.gallery_section .u-content-wrapper {
+  margin-bottom: var(--_spacing---space--8-64px);
 }
 
 .gallery_swiper {
