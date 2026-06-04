@@ -2648,7 +2648,7 @@
   grid-column-gap: var(--site--gutter);
   grid-row-gap: var(--site--gutter);
   margin-top: var(--_spacing---space--8-64px);
-  align-items: start;
+  align-items: stretch;
 }
 
 @media (max-width: 991px) {
@@ -2680,6 +2680,7 @@
   padding-left: var(--_spacing---space--5-32px);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   row-gap: var(--_spacing---space--3-16px);
 }
 
@@ -2707,7 +2708,6 @@
   display: flex;
   flex-direction: column;
   row-gap: var(--_spacing---space--4-24px);
-  flex-grow: 1;
 }
 
 .india_prereq_book_item {
@@ -2724,7 +2724,6 @@
 }
 
 .india_prereq_card_cta {
-  margin-top: auto;
   padding-top: var(--_spacing---space--5-32px);
   display: flex;
   align-items: flex-start;
