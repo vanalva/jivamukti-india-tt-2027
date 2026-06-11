@@ -1810,8 +1810,15 @@
   cursor: pointer;
 }
 
-.india_video_wrap[data-yt]:hover .india_video_play {
-  transform: translate(-50%, -50%) scale(1.08);
+.india_video_wrap[data-yt] .india_video_placeholder {
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.india_video_wrap[data-yt]:hover .india_video_placeholder {
+  transform: scale(1.03);
+  opacity: 0.92;
 }
 
 .india_video_play {
