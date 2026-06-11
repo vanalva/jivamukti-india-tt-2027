@@ -1806,6 +1806,14 @@
   display: block;
 }
 
+.india_video_wrap[data-yt] {
+  cursor: pointer;
+}
+
+.india_video_wrap[data-yt]:hover .india_video_play {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
 .india_video_play {
   position: absolute;
   top: 50%;
@@ -1813,6 +1821,7 @@
   transform: translate(-50%, -50%);
   width: 5rem;
   height: 5rem;
+  color: var(--swatch--brand-500);
   background-color: var(--swatch--light-200);
   border-top-left-radius: var(--radius--round);
   border-top-right-radius: var(--radius--round);

@@ -245,8 +245,9 @@
       <section class="india_video_section" aria-label="Program video">
         <div class="u-container">
           <p class="india_video_label">Get Inspired</p>
-          <div class="india_video_wrap">
-            <iframe class="india_video_iframe" src="https://www.youtube.com/embed/cg90CgH-f48" title="The Official Jivamukti Yoga 300HR Teacher Training at Govardhan Ecovillage, India" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="india_video_wrap" data-yt="cg90CgH-f48" role="button" tabindex="0" aria-label="Play the program video">
+            <img src="assets/india-2026-video-placeholder-min.png" alt="Watch the India TT 2027 video" class="india_video_placeholder" loading="lazy">
+            <span class="india_video_play" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           </div>
         </div>
       </section>
@@ -1403,6 +1404,32 @@
       if (overlay)  overlay.addEventListener('click',  closeModal);
       if (closeBtn) closeBtn.addEventListener('click', closeModal);
       document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+    })();
+  </script></div>
+
+  <div class="u-embed-js"><script>
+    // Click-to-play: keep poster + play button, only load the YouTube iframe on click
+    (function() {
+      document.querySelectorAll('.india_video_wrap[data-yt]').forEach(function(wrap) {
+        function play() {
+          var id = wrap.getAttribute('data-yt');
+          if (!id) return;
+          var iframe = document.createElement('iframe');
+          iframe.className = 'india_video_iframe';
+          iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
+          iframe.title = 'Program video';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          iframe.setAttribute('allowfullscreen', '');
+          wrap.innerHTML = '';
+          wrap.appendChild(iframe);
+          wrap.removeAttribute('role');
+          wrap.removeAttribute('tabindex');
+        }
+        wrap.addEventListener('click', play);
+        wrap.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+        });
+      });
     })();
   </script></div>
 
