@@ -517,6 +517,8 @@
 /* ── Video Testimonial Marquee ── */
 
 .india_video_testimonial_section {
+  /* TEMP: hidden per client until real testimonial videos are ready — delete this line to restore */
+  display: none;
   margin-top: var(--_spacing---space--8-64px);
   overflow-x: hidden;
   overflow-y: visible;
