@@ -2657,6 +2657,15 @@
   .india_prereq_grid {
     grid-template-columns: 1fr;
   }
+  /* Long CTAs ("Register to Get Free Access") must wrap, not overflow/crop the card */
+  .india_prereq_card_cta .button_secondary {
+    white-space: normal;
+    height: auto;
+    min-height: var(--button-size--medium);
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    text-align: center;
+  }
 }
 
 .india_prereq_card {
@@ -2945,8 +2954,8 @@ body.nav-locked {
   text-align: center;
   display: flex;
   flex-direction: column;
-  row-gap: var(--_spacing---space--3-16px);
-  margin-top: var(--_spacing---space--7-48px);
+  row-gap: var(--_spacing---space--2-12px);
+  margin-top: var(--_spacing---space--4-24px);
 }
 
 /* ── Tuition pricing cards (2-up centered) — retired, kept for reference ── */
@@ -3107,7 +3116,7 @@ body.nav-locked {
   max-width: 44rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: var(--_spacing---space--6-40px);
+  margin-top: var(--_spacing---space--4-24px);
   opacity: 0.7;
 }
 
