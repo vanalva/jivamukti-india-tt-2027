@@ -30,8 +30,6 @@
       .u-theme-brand .u-heading{color:var(--swatch--brand-text)}
       .u-theme-brand .india_prereq_icon,.u-theme-brand .india_prereq_card_title,.u-theme-brand .india_prereq_watch_heading{color:var(--swatch--brand-text)}
       .u-theme-brand .india_prereq_card_divider{background-color:var(--swatch--brand-text)}
-      .is-icons-centered .india_prereq_card{align-items:center;text-align:center}
-      .is-icons-centered .india_prereq_card_divider{margin-left:auto;margin-right:auto}
       .india_ig_section .u-heading{font-variant:small-caps}
       .u-theme-brand .u-text-style-large,.u-theme-brand .u-text-style-main,.u-theme-brand .u-text-style-small{color:var(--swatch--brand-text)}
       .u-theme-brand .button_primary{background-color:var(--swatch--secondary-500);color:var(--swatch--dark-900);border-top-color:var(--swatch--secondary-500);border-right-color:var(--swatch--secondary-500);border-bottom-color:var(--swatch--secondary-500);border-left-color:var(--swatch--secondary-500)}
@@ -55,11 +53,14 @@
       .u-theme-dark .footer_bottom{border-top-color:color-mix(in srgb,var(--swatch--light-200) 15%,transparent)}
       /* u-section */
       .u-section{padding-top:var(--_spacing---section-space--main-112px);padding-bottom:var(--_spacing---section-space--main-112px)}
+      .india_ig_section{padding-top:var(--_spacing---space--7-48px);padding-bottom:var(--_spacing---space--7-48px)}
+      .india_ig_section .u-content-wrapper{margin-bottom:var(--_spacing---space--5-32px)}
       /* u-container */
       .u-container{max-width:var(--max-width--main);margin-left:auto;margin-right:auto;padding-left:var(--site--margin);padding-right:var(--site--margin)}
       /* u-content-wrapper */
       .u-content-wrapper{max-width:44rem;margin-bottom:var(--_spacing---space--4-24px)}
       .u-content-wrapper.is-centered{text-align:center;margin-left:auto;margin-right:auto}
+      .u-content-wrapper.is-tight{margin-bottom:0}
       /* u-layout (2-column) */
       .u-layout{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--site--gutter);row-gap:var(--_spacing---space--8-64px)}
       @media(max-width:767px){.u-layout{grid-template-columns:1fr}}
@@ -397,7 +398,7 @@
       <!-- ─── TUITION & PRICING ────────────────────────────────── -->
       <section class="u-section" aria-labelledby="pricing-heading">
         <div class="u-container">
-          <div class="u-content-wrapper is-centered">
+          <div class="u-content-wrapper is-centered is-tight">
             <h2 class="u-heading india_housing_heading" data-style="h2" id="pricing-heading">Tuition &amp; Fees</h2>
             <p class="u-text-style-main">Tuition covers accommodations, three vegan meals per day, and all facility fees. Travel to India, airport transfers, books, and small incidentals are not included.</p>
           </div>
@@ -526,74 +527,6 @@
       <section class="u-section u-theme-brand" aria-labelledby="prereq-heading">
         <div class="u-container">
           <h2 class="u-heading india_prereq_title" data-style="h2" id="prereq-heading">Prerequisites</h2>
-          <div class="india_prereq_intro">
-            <p class="u-text-style-main">Preparing for the JYTT is a journey in itself, between reading modern and classic yoga texts, writing spiritual commentaries, practicing and memorizing two different 90 minute Jivamukti classes, and getting familiar with anatomy concepts. Don't miss the opportunity to be well prepared. As the training is very intense schedule wise and full of profound content, the more time you spend preparing the more likely it will be you can remain grounded during the experience. Please be sure to refer to the expanded instructions in the registration, also published <a href="https://jivamuktiyoga.com/prerequisites-300-teacher-training/" target="_blank" rel="noopener">here</a>.</p>
-          </div>
-          <div class="india_prereq_grid">
-
-            <div class="india_prereq_card">
-              <div class="india_prereq_icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
-              </div>
-              <h3 class="india_prereq_card_title">Read Only</h3>
-              <div class="india_prereq_card_divider"></div>
-              <div class="india_prereq_book_list">
-                <p class="india_prereq_book_item">Eternity is Happening Now, Vol I &amp; II<br>by Sharon Gannon</p>
-                <p class="india_prereq_book_item">Yoga Assists<br>by Sharon Gannon and David Life</p>
-                <p class="india_prereq_book_item">Textbook of Yoga Psychology<br>by Ramamurti S. Mishra, M.D. (or Patanjali's Yoga Sutra, any reputable translation)</p>
-                <p class="india_prereq_book_item">Hathayoga Pradipika<br>by Swami Muktibodhananda</p>
-                <p class="india_prereq_book_item">The Bhagavad Gita<br>by Winthrop Sargeant (or any reputable translation)</p>
-              </div>
-              <div class="india_prereq_card_cta">
-                <a href="https://eu.shop.jivamuktiyoga.com/" class="button_secondary" target="_blank" rel="noopener">Shop Now</a>
-              </div>
-            </div>
-
-            <div class="india_prereq_card">
-              <div class="india_prereq_icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-              </div>
-              <h3 class="india_prereq_card_title">Write 5 Spiritual Commentaries</h3>
-              <div class="india_prereq_card_divider"></div>
-              <div class="india_prereq_book_list">
-                <p class="india_prereq_book_item">Jivamukti Yoga: Practices for Liberating Body and Soul by Sharon Gannon and David Life</p>
-                <p class="india_prereq_book_item">Yoga and Veganism by Sharon Gannon</p>
-                <p class="india_prereq_book_item">Pick one of these: The Journey Home: Autobiography of an American Swami by Radhanath Swami or Autobiography of a Yogi by Paramahansa Yogananda</p>
-                <p class="india_prereq_book_item">The Magic Ten and Beyond by Sharon Gannon</p>
-                <p class="india_prereq_book_item">Focus of the Month (choose one from the current calendar year or the immediately preceding calendar year)</p>
-              </div>
-              <div class="india_prereq_card_cta">
-                <a href="https://jivamuktiyoga.com/prerequisites-300-teacher-training/" class="button_secondary" target="_blank" rel="noopener">Prerequisite Guidelines</a>
-              </div>
-            </div>
-
-            <div class="india_prereq_card">
-              <div class="india_prereq_icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-              </div>
-              <h3 class="india_prereq_card_title">Practice, Memorize, Transcribe Classes 6 &amp; 7</h3>
-              <div class="india_prereq_card_divider"></div>
-              <div class="india_prereq_book_list">
-                <p class="india_prereq_book_item">Transcribe each class by writing out, word for word, everything said by Sharon and David in the recordings, starting with the chanting but some choose to also transcribe the whole dharma talks at the beginning. Include breath counts, asana names, alignment instructions.... everything that is said as they teach the classes, like a script.</p>
-                <p class="india_prereq_book_item">These class recordings will be made available after registration.</p>
-                <p class="india_prereq_book_item">Class 6: Balancing with Sharon Gannon<br>Class 7: Backbending with David Life</p>
-                <h4 class="india_prereq_watch_heading">Watch</h4>
-                <div class="india_prereq_card_divider"></div>
-                <p class="india_prereq_book_item">Anatomy Introduction Videos</p>
-              </div>
-              <div class="india_prereq_card_cta">
-                <a href="https://www.regpack.com/reg/templates/build/?g_id=100919779" class="button_secondary" target="_blank" rel="noopener">Register to Get Free Access</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── PREREQUISITES (CENTERED-ICONS PREVIEW VARIANT — remove one once chosen) ─── -->
-      <section class="u-section u-theme-brand is-icons-centered" aria-labelledby="prereq-heading-centered">
-        <div class="u-container">
-          <h2 class="u-heading india_prereq_title" data-style="h2" id="prereq-heading-centered">Prerequisites</h2>
           <div class="india_prereq_intro">
             <p class="u-text-style-main">Preparing for the JYTT is a journey in itself, between reading modern and classic yoga texts, writing spiritual commentaries, practicing and memorizing two different 90 minute Jivamukti classes, and getting familiar with anatomy concepts. Don't miss the opportunity to be well prepared. As the training is very intense schedule wise and full of profound content, the more time you spend preparing the more likely it will be you can remain grounded during the experience. Please be sure to refer to the expanded instructions in the registration, also published <a href="https://jivamuktiyoga.com/prerequisites-300-teacher-training/" target="_blank" rel="noopener">here</a>.</p>
           </div>

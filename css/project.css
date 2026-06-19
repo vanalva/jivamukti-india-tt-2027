@@ -2255,14 +2255,14 @@
 /* ── Gallery (Swiper) ── */
 
 .gallery_section {
-  background-color: #ea2828;
+  background-color: var(--swatch--brand-500);
   padding-top: var(--_spacing---section-space--main-112px);
   padding-bottom: var(--_spacing---section-space--main-112px);
   overflow-x: hidden;
   overflow-y: visible;
 }
 
-/* Bright-red gallery: light text + extra gap between header and images */
+/* Dark-red gallery: light text + extra gap between header and images */
 .gallery_section .u-heading,
 .gallery_section .u-text-style-main {
   color: var(--swatch--light-200);
@@ -2717,7 +2717,7 @@
   padding-left: var(--_spacing---space--5-32px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   row-gap: var(--_spacing---space--3-16px);
 }
 
@@ -2761,6 +2761,7 @@
 }
 
 .india_prereq_card_cta {
+  margin-top: auto;
   padding-top: var(--_spacing---space--5-32px);
   display: flex;
   align-items: flex-start;
@@ -2981,7 +2982,7 @@ body.nav-locked {
   display: flex;
   flex-direction: column;
   row-gap: var(--_spacing---space--2-12px);
-  margin-top: var(--_spacing---space--4-24px);
+  margin-top: var(--_spacing---space--3-16px);
 }
 
 /* ── Tuition pricing cards (2-up centered) — retired, kept for reference ── */
@@ -3142,7 +3143,7 @@ body.nav-locked {
   max-width: 44rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: var(--_spacing---space--4-24px);
+  margin-top: var(--_spacing---space--3-16px);
   opacity: 0.7;
 }
 
