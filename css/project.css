@@ -224,6 +224,56 @@
   padding-bottom: var(--_spacing---space--5-32px);
   padding-left: var(--_spacing---space--5-32px);
   padding-right: var(--_spacing---space--5-32px);
+  /* Vertical rhythm — every block gets a clear "line jump" between it and the next */
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--_spacing---space--3-16px);
+}
+
+/* Emphasised opening callout (e.g. the "check your nationality status" line) */
+.accordion_lead {
+  font-weight: var(--_typography---font--primary-bold);
+}
+
+/* Sub-section heading inside an accordion — the hierarchy cue */
+.accordion_subhead {
+  font-weight: var(--_typography---font--primary-bold);
+  letter-spacing: var(--_typography---letter-spacing--wide);
+  text-transform: uppercase;
+  margin-top: var(--_spacing---space--3-16px);
+}
+
+/* Grouped block (address, "held at", contact) — set apart with a left rule */
+.accordion_group {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--_spacing---space--1-8px);
+  padding-left: var(--_spacing---space--4-24px);
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.accordion_group_label {
+  font-weight: var(--_typography---font--primary-bold);
+}
+
+/* Key/value details (Cost / Booking / Payment …) — tight rows, bold terms */
+.accordion_kv {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--_spacing---space--1-8px);
+}
+
+/* Real bulleted list inside an accordion (framework strips markers globally) */
+.accordion_list_ul {
+  padding-left: var(--_spacing---space--5-32px);
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.accordion_list_ul li {
+  margin-bottom: var(--_spacing---space--1-8px);
 }
 
 /* ── Video Testimonial Marquee ── */
