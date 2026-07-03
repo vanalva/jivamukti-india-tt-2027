@@ -943,18 +943,16 @@
   overflow-x: hidden;
   overflow-y: hidden;
   margin-bottom: var(--_spacing---space--7-48px);
-  /* Height scales with WIDTH (not viewport height) + a floor and cap, so the
-     frame keeps a sane ratio on any screen. The old min(72vh,…) tied height to
-     viewport height, so a short/resized window collapsed it into a wide,
-     compressed strip. The floor is the guaranteed minimum height. */
-  min-height: clamp(26rem, 42vw, 42rem);
   --swiper-theme-color: var(--swatch--light-200);
   --swiper-navigation-size: 1.75rem;
 }
 
 .india_land_slide_img {
   width: 100%;
-  height: clamp(26rem, 42vw, 42rem);
+  /* Locked 5.5:4 ratio — height tracks width, so the frame stays tall, never
+     compresses to a wide strip, and never depends on the visitor's screen
+     height. Widen the second number to make it taller (e.g. 5.5/4.5). */
+  aspect-ratio: 5.5 / 4;
   object-fit: cover;
   object-position: center;
   display: block;
