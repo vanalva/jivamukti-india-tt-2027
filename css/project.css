@@ -1483,11 +1483,11 @@
 
 .gallery_slide_image {
   width: 100%;
-  /* Fixed height floor + cap (not width-derived) so a full-bleed 3-up slide
-     never balloons into an extreme tall crop on wide screens — keeps a stable,
-     sensible frame on any viewport. */
-  height: clamp(20rem, 38vw, 32rem);
-  min-height: 20rem;
+  /* Locked aspect-ratio — height always tracks width, so the frame can NEVER
+     compress into a wide/short crop on resize. Tile size is kept sane on wide
+     screens by showing more slides per view (Swiper breakpoints), not by
+     fighting the ratio with a fixed height. */
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
   display: block;
