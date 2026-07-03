@@ -943,15 +943,20 @@
   overflow-x: hidden;
   overflow-y: hidden;
   margin-bottom: var(--_spacing---space--7-48px);
-  min-height: min(72vh, 44rem);
+  /* Height scales with WIDTH (not viewport height) + a floor and cap, so the
+     frame keeps a sane ratio on any screen. The old min(72vh,…) tied height to
+     viewport height, so a short/resized window collapsed it into a wide,
+     compressed strip. The floor is the guaranteed minimum height. */
+  min-height: clamp(26rem, 42vw, 42rem);
   --swiper-theme-color: var(--swatch--light-200);
   --swiper-navigation-size: 1.75rem;
 }
 
 .india_land_slide_img {
   width: 100%;
-  height: min(72vh, 44rem);
+  height: clamp(26rem, 42vw, 42rem);
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -1483,13 +1488,8 @@
 
 .gallery_slide_image {
   width: 100%;
-  /* Locked aspect-ratio — height always tracks width, so the frame can NEVER
-     compress into a wide/short crop on resize. Tile size is kept sane on wide
-     screens by showing more slides per view (Swiper breakpoints), not by
-     fighting the ratio with a fixed height. */
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center;
   display: block;
   border-top-left-radius: var(--radius--main);
   border-top-right-radius: var(--radius--main);
