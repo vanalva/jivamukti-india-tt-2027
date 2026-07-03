@@ -1612,14 +1612,12 @@
   max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: var(--_spacing---space--5-32px);
 }
 
 .india_housing_rooms {
   display: flex;
   flex-direction: column;
   row-gap: var(--_spacing---space--8-64px);
-  margin-top: var(--_spacing---space--8-64px);
 }
 
 .india_housing_room_divider {
@@ -2062,7 +2060,6 @@
   display: flex;
   flex-direction: column;
   row-gap: var(--_spacing---space--2-12px);
-  margin-top: var(--_spacing---space--3-16px);
   max-width: 44rem;
   margin-left: auto;
   margin-right: auto;
@@ -2071,7 +2068,6 @@
 .india_pricing_note {
   text-align: center;
   max-width: 44rem;
-  margin-top: var(--_spacing---space--4-24px);
   margin-left: auto;
   margin-right: auto;
 }
