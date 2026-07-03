@@ -71,7 +71,9 @@
   --_typography---font-size--text-main: clamp(.875rem, .625rem + 0.536vw, 1.25rem);
   --_typography---font-size--text-large: clamp(1rem, .786rem + 0.536vw, 1.375rem);
   --_typography---font-size--text-small: clamp(.75rem, .679rem + 0.179vw, .875rem);
-  --_typography---font-size--tenet: clamp(.8125rem, .65rem + 0.6vw, 1rem);
+  /* Compact body — exactly 2px below text-main (20px→18px desktop). Used only
+     where dense cards would overflow at full body size: tenets, prereq lists. */
+  --_typography---font-size--tenet: clamp(.9375rem, .7rem + 0.55vw, 1.125rem);
 
   --_typography---line-height--small: 1.2;
   --_typography---line-height--medium: 1.3;
