@@ -1816,8 +1816,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 55%;
   display: block;
-  filter: grayscale(1);
+  transform: scale(1.4);
+  transform-origin: center 55%;
 }
 
 @media (max-width: 767px) {
