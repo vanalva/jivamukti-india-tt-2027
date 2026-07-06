@@ -1535,11 +1535,13 @@
 
 .gallery_dots.swiper-pagination-bullets.swiper-pagination-horizontal {
   position: static;
-  width: auto;
   left: auto;
   right: auto;
   bottom: auto;
-  text-align: left;
+  /* Fixed window so only ~5 dynamic bullets show; the strip rotates as you navigate */
+  width: 7rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .gallery_dots .swiper-pagination-bullet {
