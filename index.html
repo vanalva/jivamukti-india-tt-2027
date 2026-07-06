@@ -208,6 +208,7 @@
           <div class="u-container">
 
             <!-- Contained image gallery -->
+            <div class="india_land_slider_wrap">
             <div class="india_land_slider swiper" id="landActionSwiper">
               <div class="swiper-wrapper">
                 <!-- Order per client (1-10); unnumbered group-hug image last -->
@@ -245,7 +246,20 @@
                   <img src="assets/karmabhumi-03.webp" alt="Jivamukti Yoga Teacher Training at Govardhan Ecovillage, India" class="india_land_slide_img" loading="lazy">
                 </div>
               </div>
-              <div class="swiper-pagination india_land_dots"></div>
+            </div>
+
+            <div class="india_land_nav">
+              <div class="swiper-pagination india_land_dots" id="landDots"></div>
+              <div class="india_land_arrows">
+                <button type="button" class="tenets_ctrl_btn" id="landPrev" aria-label="Previous image">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button type="button" class="tenets_ctrl_btn" id="landNext" aria-label="Next image">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+
             </div>
 
             <header class="india_land_header">
@@ -1021,9 +1035,9 @@
       var landEl = document.getElementById('landActionSwiper');
       if (landEl) {
         try {
-          var landPag = landEl.querySelector('.swiper-pagination');
-          var landNext = landEl.querySelector('.swiper-button-next');
-          var landPrev = landEl.querySelector('.swiper-button-prev');
+          var landPag = document.getElementById('landDots');
+          var landNext = document.getElementById('landNext');
+          var landPrev = document.getElementById('landPrev');
           var landOpts = {
             loop: true,
             speed: 600,

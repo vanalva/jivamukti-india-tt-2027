@@ -942,7 +942,6 @@
   border-bottom-right-radius: var(--radius--main);
   overflow-x: hidden;
   overflow-y: hidden;
-  margin-bottom: var(--_spacing---space--7-48px);
   --swiper-theme-color: var(--swatch--light-200);
   --swiper-navigation-size: 1.75rem;
 }
@@ -958,30 +957,42 @@
   display: block;
 }
 
-.india_land_slider .swiper-button-prev,
-.india_land_slider .swiper-button-next {
-  color: var(--swatch--light-100);
-  opacity: 0.92;
+/* Land slider nav bar — dots on the left, arrows on the right, below the slider */
+.india_land_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: var(--_spacing---space--4-24px);
+  margin-top: var(--_spacing---space--4-24px);
 }
 
-.india_land_slider .swiper-button-prev::after,
-.india_land_slider .swiper-button-next::after {
-  font-size: 1.75rem;
-  font-weight: 700;
+.india_land_arrows {
+  display: flex;
+  column-gap: var(--_spacing---space--2-12px);
+  flex-shrink: 0;
 }
 
+.india_land_arrows .tenets_ctrl_btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Dots sit statically in the nav bar (on the cream panel) instead of over the image */
 .india_land_dots.swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: 0.75rem;
-  left: 0;
-  right: 0;
+  position: static;
+  width: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  text-align: left;
 }
 
-.india_land_slider .swiper-pagination-bullet {
-  background-color: var(--swatch--light-100);
-  opacity: 0.45;
+.india_land_dots .swiper-pagination-bullet {
+  background-color: var(--swatch--dark-900);
+  opacity: 0.3;
 }
 
-.india_land_slider .swiper-pagination-bullet-active {
+.india_land_dots .swiper-pagination-bullet-active {
   opacity: 1;
 }
 
