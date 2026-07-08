@@ -1899,6 +1899,10 @@
   text-align: center;
 }
 
+.india_prereq_cta {
+  margin-top: var(--_spacing---space--5-32px);
+}
+
 .india_prereq_grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
