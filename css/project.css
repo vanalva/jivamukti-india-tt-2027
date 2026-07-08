@@ -1902,7 +1902,7 @@
 
 .india_prereq_grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-column-gap: var(--site--gutter);
   grid-row-gap: var(--site--gutter);
   margin-top: var(--_spacing---space--8-64px);
