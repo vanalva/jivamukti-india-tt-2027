@@ -1899,8 +1899,13 @@
   text-align: center;
 }
 
-.india_prereq_cta {
-  margin-top: var(--_spacing---space--5-32px);
+.india_prereq_link {
+  color: inherit;
+  font-weight: var(--_typography---font--primary-bold);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.15em;
 }
 
 .india_prereq_grid {
